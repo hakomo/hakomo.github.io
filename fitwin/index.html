@@ -1,0 +1,78 @@
+<!doctype html>
+
+<meta charset='utf-8'>
+
+<title>Fit Win</title>
+
+<link rel='stylesheet' href='css/default.css'>
+<link rel='stylesheet' href='css/common.css'>
+
+<div>
+    <p id='twitter'></p><p id='facebook'></p><p id='hatena'></p>
+    <h1>Fit Win</h1>
+    <p>ウィンドウの移動・サイズ変更ツール</p>
+    <h3>簡単な操作で強力なウィンドウの移動・サイズ変更<br>マルチモニターでも簡単<br>キーボードのみの操作でも簡単</h3>
+    <p><img src='img/b.png'><br>こんなに複雑なウィンドウ配置でも簡単に作れます</p>
+    <p><a href='dl/fitwin.zip'>ダウンロード</a></p>
+    <h2>基本的な使い方</h2>
+    <p>テンプレートをクリックすると、そのテンプレートをエディタで開きます</p>
+    <p><img src='img/p0.png'></p>
+    <hr>
+    <p>エディタを右クリックして分割<br>ボーダーをドラッグして移動<br>ボーダーを右クリックして削除</p>
+    <p><img src='img/p1.png'></p>
+    <hr>
+    <p>アイコンをエディタやテンプレートにドラッグ＆ドロップして移動・サイズ変更</p>
+    <p><img src='img/p2.png'></p>
+    <hr>
+    <p>アイコンを左クリックして、ウィンドウをアクティブ<br>アイコンを右クリックして、ウィンドウを操作</p>
+    <p><img src='img/p3.png'></p>
+    <hr>
+    <p>テンプレートをドラッグ＆ドロップして並び替え<br>テンプレートを右クリックして削除<br>エディタを追加ボタンを押して、エディタの編集をテンプレートに追加</p>
+    <p><img src='img/p4.png'></p>
+    <h2>マルチモニター環境での使い方</h2>
+    <p>モニターをクリックして選択</p>
+    <p>アイコンをドラッグ＆ドロップすると、選択されたモニターに移動・サイズ変更されます<br>マルチモニターが非表示のときは、プライマリモニターに移動・サイズ変更されます</p>
+    <p><img src='img/p5.png'></p>
+    <h2>キーボードのみの操作での使い方</h2>
+    <p>アイコンに表示されている文字列をタイプして選択<br>テンプレートに表示されている文字列をタイプして移動・サイズ変更</p>
+    <p>例えば、メモ帳をモニター右上に移動・サイズ変更するときは、ESKとタイプします</p>
+    <p><img src='img/p6.png'></p>
+    <hr>
+    <table>
+        <caption>ショートカットの一覧</caption>
+        <tr><td>閉じる</td><td>Esc</td></tr>
+        <tr><td>タイプを元に戻す</td><td>Back space</td></tr>
+        <tr><td>次のモニターを選択</td><td>Space</td></tr>
+        <tr><td>前のモニターを選択</td><td>Shift + Space</td></tr>
+        <tr><td>右のアイコンを選択</td><td>→, Tab</td></tr>
+        <tr><td>左のアイコンを選択</td><td>←, Shift + Tab</td></tr>
+        <tr><td>上のアイコンを選択</td><td>↑</td></tr>
+        <tr><td>下のアイコンを選択</td><td>↓</td></tr>
+        <tr><td>ウィンドウをアクティブ</td><td>Enter</td></tr>
+        <tr><td>ウィンドウを操作</td><td>;</td></tr>
+    </table>
+    <hr>
+    <p><a href='dl/fitwin.zip'>ダウンロード</a><br><a href='https://docs.google.com/forms/d/1y261eyYnYuB5LwlV9NHfPYD_DaU48GlPGwQdp_iWnWQ/viewform?usp=send_form'>バグの報告・要望・感想など</a></p>
+    <footer>(C) 2014 <a href='http://twitter.com/hakomof'>@hakomof</a></footer>
+</div>
+
+<script src='http://code.jquery.com/jquery-2.0.3.min.js'></script>
+<script src='js/jquery.socialbutton-1.9.1.min.js'></script>
+<script>
+  $(function() {
+    $('#twitter').socialbutton('twitter', {
+      button: 'horizontal',
+      url: 'http://hakomo.github.io/fitwin',
+      text: 'ウィンドウの移動・サイズ変更ツール Fit Win'
+    }).width(93);
+    $('#facebook').socialbutton('facebook_like', {
+      button: 'button_count',
+      url: 'http://hakomo.github.io/fitwin'
+    }).width(105);
+    $('#hatena').socialbutton('hatena', {
+      button: 'standard',
+      url: 'http://hakomo.github.io/fitwin',
+      title: 'ウィンドウの移動・サイズ変更ツール Fit Win'
+    }).width(55);
+  });
+</script>
