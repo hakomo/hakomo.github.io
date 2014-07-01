@@ -1,8 +1,9 @@
 ﻿
 body {
     background-color: hsl(210, 50%, 92%);
-    font-size: 16px;
     font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 div {
@@ -17,6 +18,7 @@ div {
 
 h1 {
     font-size: 54px;
+    line-height: 54px;
 }
 
 h1:first-letter {
@@ -27,14 +29,7 @@ h2 {
     border-bottom: 1px solid rgb(192, 192, 192);
     font-size: 24px;
     margin: 90px 0 30px 0;
-    padding-bottom: 5px;
-}
-
-h3 {
-    font-size: 24px;
-    font-weight: normal;
-    line-height: 36px;
-    margin: 30px 0;
+    padding-bottom: 4px;
 }
 
 hr {
@@ -42,30 +37,23 @@ hr {
     margin-bottom: 30px;
 }
 
-p {
+p, table {
     margin-bottom: 30px;
-}
-
-table {
-    margin: 30px 0;
 }
 
 td {
     border: 1px solid rgb(192, 192, 192);
-    padding: 5px 30px 5px 15px;
+    padding: 4px 30px 4px 15px;
 }
 
 caption {
-    padding: 0 0 5px 15px;
+    padding: 0 0 4px 15px;
     text-align: left;
-}
-
-a {
-    line-height: 24px;
 }
 
 footer {
     border-top: 1px solid rgb(192, 192, 192);
+    margin-top: 90px;
     padding: 30px 0;
 }
 
@@ -74,13 +62,13 @@ footer {
 }
 
 #twitter {
-    right: 30px;
+    right: 20px;
 }
 
 #facebook {
-    right: 130px;
+    right: 120px;
 }
 
 #hatena {
-    right: 245px;
+    right: 235px;
 }
