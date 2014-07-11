@@ -1,20 +1,23 @@
 <!doctype html>
-
+<html>
+<head>
 <meta charset='utf-8'>
-
 <title>Fit Win - ウィンドウの移動・サイズ変更ツール</title>
-
-<link rel='stylesheet' href='css/default.css'>
-<link rel='stylesheet' href='css/common.css'>
-
-<div>
+<meta name='description' content='簡単な操作で強力なウィンドウの移動・サイズ変更'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<link rel='stylesheet' href='../css/common.css'>
+<style> h1:first-letter { color: rgb(64, 96, 128); }</style>
+</head>
+<body>
+<div id='lml'>
     <p id='twitter'></p><p id='facebook'></p><p id='hatena'></p>
+    <p><a href='../'>てくてくぺたぺた - つくったアプリを公開しています！</a></p>
     <h1>Fit Win</h1>
     <p>ウィンドウの移動・サイズ変更ツール</p>
     <p>簡単な操作で強力なウィンドウの移動・サイズ変更<br>マルチモニターでも簡単<br>キーボードのみの操作でも簡単</p>
     <p><iframe width="560" height="315" src="https://www.youtube.com/embed/hpTZREqNQm8" frameborder="0" allowfullscreen></iframe></p>
-    <p><a href='dl/fitwin.zip'>ダウンロード 0.2.20140702</a><br><a href='#change_log'>更新履歴</a></p>
-    <h2>基本的な使い方</h2>
+    <p><a href='dl/fitwin.zip'>ダウンロード 0.3.20140712</a><br><a href='#change-log'>更新履歴</a></p>
+    <h2>ウィンドウを移動・サイズ変更する</h2>
     <p>テンプレートをクリックすると、そのテンプレートをエディタで開きます</p>
     <p><img src='img/p1.png'></p>
     <hr>
@@ -23,17 +26,21 @@
     <hr>
     <p>アイコンをエディタやテンプレートにドラッグ＆ドロップして移動・サイズ変更</p>
     <p><img src='img/p3.png'></p>
-    <hr>
+    <h2><a name='restowa'>ウィンドウの配置を保存・復元する</a></h2>
+    <p>起動しているすべてのウィンドウの配置を保存します<br>その後、ウィンドウを移動・サイズ変更しても保存した配置にすぐに戻せます</p>
+    <p>エクスプローラ間でドラッグアンドドロップをしたいが、ウィンドウが重なっていてできないときなどに、<br>ウィンドウを移動させてもすぐに戻せます</p>
+    <p><img src='img/p8.png'></p>
+    <h2>ウィンドウを操作する・テンプレートを使う</h2>
     <p>アイコンを左クリックして、ウィンドウをアクティブ<br>アイコンを右クリックして、ウィンドウを操作</p>
     <p><img src='img/p4.png'></p>
     <hr>
     <p>テンプレートをドラッグ＆ドロップして並び替え<br>テンプレートを右クリックして削除<br>エディタを追加ボタンを押して、エディタの編集をテンプレートに追加</p>
     <p><img src='img/p5.png'></p>
-    <h2>マルチモニター環境での使い方</h2>
+    <h2>マルチモニター環境で使う</h2>
     <p>モニターをクリックして選択</p>
     <p>アイコンをドラッグ＆ドロップすると、選択されたモニターに移動・サイズ変更されます<br>マルチモニターが非表示のときは、プライマリモニターに移動・サイズ変更されます</p>
     <p><img src='img/p6.png'></p>
-    <h2>キーボードのみの操作での使い方</h2>
+    <h2>キーボードで使う</h2>
     <p>アイコンに表示されている文字列をタイプして選択<br>テンプレートに表示されている文字列をタイプして移動・サイズ変更</p>
     <p>例えば、メモ帳をモニター右上に移動・サイズ変更するときは、ESKとタイプします</p>
     <p><img src='img/p7.png'></p>
@@ -51,44 +58,50 @@
         <tr><td>ウィンドウをアクティブ</td><td>Enter</td></tr>
         <tr><td>ウィンドウを操作</td><td>;, Apps</td></tr>
     </table>
+    <h2><a name='filter'>フィルター</a></h2>
+    <p>指定のウィンドウをアプリの一覧に表示しないようにします</p>
+    <p>最大化でしか使わない・電卓はモニターの中央で固定など、<br>移動・サイズ変更しない・できないアプリを表示しないようにします</p>
+    <p><img src='img/p9.png'></p>
     <h2>ダウンロード</h2>
-    <p><a href='dl/fitwin.zip'>ダウンロード 0.2.20140702</a><br><a href='https://docs.google.com/forms/d/1y261eyYnYuB5LwlV9NHfPYD_DaU48GlPGwQdp_iWnWQ/viewform?usp=send_form'>バグの報告・要望・感想など</a></p>
-    <h2><a name='change_log'>更新履歴</a></h2>
+    <p><a href='dl/fitwin.zip'>ダウンロード 0.3.20140712</a><br><a href='https://docs.google.com/forms/d/1y261eyYnYuB5LwlV9NHfPYD_DaU48GlPGwQdp_iWnWQ/viewform?entry.1558357097=Fit+Win&entry.187745740&entry.1950332360'>バグの報告・要望・感想などぜひ！</a></p>
+    <h2><a name='change-log'>更新履歴</a></h2>
+    <p>0.3.20140712<br><a href='#restowa'>ウィンドウの配置を保存・復元する</a>機能を追加<br><a href='#filter'>フィルター</a>（指定のウィンドウをアプリの一覧に表示しない）機能を追加<br>マルチモニターの選択されているモニターを記憶するように変更<br>デフォルトのテンプレートを１つ追加<br>アイコンを微修正</p>
     <p>0.2.20140702<br>常駐機能を追加<br>新しいバージョンの通知機能を追加<br>HaH 表示時にアイコンのコンテキストメニューを表示するショートカットにアプリケーションキーを追加<br>起動時にテンプレートの HaH が表示されないバグを修正</p>
     <p>0.1.20140602<br>公開</p>
     <h2>紹介いただいたメディア</h2>
-    <p><a href='http://www.forest.impress.co.jp/docs/review/20140618_653114.html'>【レビュー】ウィンドウを指定しておいた枠に合わせて簡単にリサイズ・整列「Fit Win」 - 窓の杜</a><br><a href='http://www.softnavi.com/review/window_sousa/fit_win_1.html'>フリーソフトナヴィ</a></p>
-    <footer>(C) 2014 <a href='http://twitter.com/hakomof'>@hakomof</a></footer>
+    <p><a href='http://www.forest.impress.co.jp/docs/review/20140618_653114.html' target='_blank'>【レビュー】ウィンドウを指定しておいた枠に合わせて簡単にリサイズ・整列「Fit Win」 - 窓の杜</a><br><a href='http://www.softnavi.com/review/window_sousa/fit_win_1.html' target='_blank'>フリーソフトナヴィ</a></p>
+    <footer>(C) 2014 <a href='https://twitter.com/hakomof/' target='_blank'>@hakomof</a><a href='../'>てくてくぺたぺた - つくったアプリを公開しています！</a></footer>
 </div>
 
 <script src='http://code.jquery.com/jquery-2.0.3.min.js'></script>
-<script src='js/jquery.socialbutton-1.9.1.min.js'></script>
+<script src='../js/jquery.socialbutton-1.9.1.min.js'></script>
 <script>
-  $(function() {
-    $('#twitter').socialbutton('twitter', {
-      button: 'horizontal',
-      url: 'http://hakomo.github.io/fitwin',
-      text: 'Fit Win - ウィンドウの移動・サイズ変更ツール'
-    }).width(93);
-    $('#facebook').socialbutton('facebook_like', {
-      button: 'button_count',
-      url: 'http://hakomo.github.io/fitwin'
-    }).width(105);
-    $('#hatena').socialbutton('hatena', {
-      button: 'standard',
-      url: 'http://hakomo.github.io/fitwin',
-      title: 'Fit Win - ウィンドウの移動・サイズ変更ツール'
-    }).width(55);
-  });
+(function($) {
+    $(function() {
+        $('#twitter').socialbutton('twitter', {
+            button: 'horizontal',
+            url: 'http://hakomo.github.io/fitwin',
+            text: 'Fit Win - ウィンドウの移動・サイズ変更ツール'
+        }).width(93);
+        $('#facebook').socialbutton('facebook_like', {
+            button: 'button_count',
+            url: 'http://hakomo.github.io/fitwin'
+        }).width(105);
+        $('#hatena').socialbutton('hatena', {
+            button: 'standard',
+            url: 'http://hakomo.github.io/fitwin',
+            title: 'Fit Win - ウィンドウの移動・サイズ変更ツール'
+        }).width(55);
+    });
+}(jQuery));
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-51595485-1', 'hakomo.github.io');
+ga('send', 'pageview');
 </script>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-51595485-1', 'hakomo.github.io');
-  ga('send', 'pageview');
-
-</script>
+</body>
+</html>
