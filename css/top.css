@@ -1,0 +1,177 @@
+html, body {
+  background-color: #edf7f6; }
+
+h1 {
+  font-size: 32px;
+  line-height: 1;
+  font-weight: normal; }
+
+.header {
+  padding: 36px 16px; }
+
+.social {
+  padding: 32px 0; }
+  .social > a {
+    padding: 0 16px;
+    line-height: 2;
+    color: black;
+    text-decoration: none; }
+  .social > :hover {
+    text-decoration: underline; }
+
+img {
+  border-radius: 4px 4px 0 0; }
+
+.android {
+  background: linear-gradient(to left bottom, #d9ffb3, #a6d279); }
+
+.firefox {
+  background: linear-gradient(to left bottom, #ffccb3, #d29779); }
+
+.web {
+  background: linear-gradient(to left bottom, #fff2b3, #d2c379); }
+
+.windows {
+  background: linear-gradient(to left bottom, #b3e5ff, #79b5d2); }
+
+@media screen and (min-width: 0px) and (max-width: 624px) {
+  .label > span {
+    display: inline-block;
+    width: 130px;
+    border-radius: 4px;
+    padding: 4px 8px; }
+  .label > :nth-child(even) {
+    margin-left: 8px; }
+  .label > :nth-child(n+3) {
+    margin-top: 8px; }
+
+  .space {
+    display: none; }
+
+  #wrapper {
+    width: 300px; }
+
+  #header {
+    height: 256px;
+    display: flex;
+    flex-wrap: wrap; }
+    #header > div {
+      box-sizing: border-box;
+      width: 300px;
+      height: 100px; }
+    #header > :not(:nth-child(1n+1)) {
+      margin-left: 8px; }
+
+  #footer {
+    height: 0; }
+
+  #container {
+    padding-bottom: 0; }
+    #container > :last-child {
+      margin-bottom: 8px; }
+
+  .card {
+    display: flex;
+    flex-wrap: wrap; }
+    .card > a {
+      width: 300px;
+      height: 288px;
+      margin-top: 32px;
+      border-radius: 4px;
+      color: black;
+      text-decoration: none; }
+      .card > a > div {
+        padding: 0 16px; }
+    .card > :not(:nth-child(1n+1)) {
+      margin-left: 8px; } }
+@media screen and (min-width: 625px) and (max-width: 932px) {
+  .label > span {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px; }
+  .label > :not(:first-child) {
+    margin-left: 8px; }
+
+  .space {
+    display: none; }
+
+  #wrapper {
+    width: 608px; }
+
+  #header {
+    height: 128px;
+    display: flex;
+    flex-wrap: wrap; }
+    #header > div {
+      box-sizing: border-box;
+      width: 300px;
+      height: 100px; }
+    #header > :not(:nth-child(2n+1)) {
+      margin-left: 8px; }
+
+  #footer {
+    height: 0; }
+
+  #container {
+    padding-bottom: 0; }
+    #container > :last-child {
+      margin-bottom: 8px; }
+
+  .card {
+    display: flex;
+    flex-wrap: wrap; }
+    .card > a {
+      width: 300px;
+      height: 288px;
+      margin-top: 32px;
+      border-radius: 4px;
+      color: black;
+      text-decoration: none; }
+      .card > a > div {
+        padding: 0 16px; }
+    .card > :not(:nth-child(2n+1)) {
+      margin-left: 8px; } }
+@media screen and (min-width: 933px) and (max-width: 9000px) {
+  .label > span {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px; }
+  .label > :not(:first-child) {
+    margin-left: 8px; }
+
+  #wrapper {
+    width: 916px; }
+
+  #header {
+    height: 128px;
+    display: flex;
+    flex-wrap: wrap; }
+    #header > div {
+      box-sizing: border-box;
+      width: 300px;
+      height: 100px; }
+    #header > :not(:nth-child(3n+1)) {
+      margin-left: 8px; }
+
+  #footer {
+    height: 0; }
+
+  #container {
+    padding-bottom: 0; }
+    #container > :last-child {
+      margin-bottom: 8px; }
+
+  .card {
+    display: flex;
+    flex-wrap: wrap; }
+    .card > a {
+      width: 300px;
+      height: 288px;
+      margin-top: 32px;
+      border-radius: 4px;
+      color: black;
+      text-decoration: none; }
+      .card > a > div {
+        padding: 0 16px; }
+    .card > :not(:nth-child(3n+1)) {
+      margin-left: 8px; } }
