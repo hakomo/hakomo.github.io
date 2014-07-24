@@ -23,16 +23,16 @@ img {
   border-radius: 4px 4px 0 0; }
 
 .android {
-  background: linear-gradient(to left bottom, #d9ffb3, #a6d279); }
+  background: linear-gradient(to right bottom, #d9ffb3, #a6d279); }
 
 .firefox {
-  background: linear-gradient(to left bottom, #ffccb3, #d29779); }
+  background: linear-gradient(to right bottom, #ffccb3, #d29779); }
 
 .web {
-  background: linear-gradient(to left bottom, #fff2b3, #d2c379); }
+  background: linear-gradient(to right bottom, #fff2b3, #d2c379); }
 
 .windows {
-  background: linear-gradient(to left bottom, #b3e5ff, #79b5d2); }
+  background: linear-gradient(to right bottom, #b3e5ff, #79b5d2); }
 
 @media screen and (min-width: 0px) and (max-width: 624px) {
   .label > span {
@@ -63,12 +63,12 @@ img {
       margin-left: 8px; }
 
   #footer {
-    height: 0; }
+    height: 296px; }
 
   #container {
-    padding-bottom: 0; }
+    padding-bottom: 296px; }
     #container > :last-child {
-      margin-bottom: 8px; }
+      margin-bottom: 32px; }
 
   .card {
     display: flex;
@@ -110,12 +110,12 @@ img {
       margin-left: 8px; }
 
   #footer {
-    height: 0; }
+    height: 176px; }
 
   #container {
-    padding-bottom: 0; }
+    padding-bottom: 176px; }
     #container > :last-child {
-      margin-bottom: 8px; }
+      margin-bottom: 32px; }
 
   .card {
     display: flex;
@@ -154,12 +154,12 @@ img {
       margin-left: 8px; }
 
   #footer {
-    height: 0; }
+    height: 152px; }
 
   #container {
-    padding-bottom: 0; }
+    padding-bottom: 152px; }
     #container > :last-child {
-      margin-bottom: 8px; }
+      margin-bottom: 32px; }
 
   .card {
     display: flex;

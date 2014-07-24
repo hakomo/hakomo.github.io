@@ -11,7 +11,7 @@ $scrollbar-width: 17px;
 }
 
 @mixin card-back($hue) {
-    background: linear-gradient(to left bottom, hsl($hue, 100%, 85%), hsl($hue, 50%, 65%));
+    background: linear-gradient(to right bottom, hsl($hue, 100%, 85%), hsl($hue, 50%, 65%));
 }
 
 @mixin in($width, $header-height, $footer-height, $card-rows) {
@@ -81,7 +81,7 @@ $scrollbar-width: 17px;
         padding-bottom: $footer-height;
 
         > :last-child {
-            margin-bottom: $margin;
+            margin-bottom: $margin * 4;
         }
     }
 
@@ -160,6 +160,6 @@ img {
 @for $i from 1 through $card-rows {
     @media screen and (min-width: if($i == 1, 0px, width($i) + $scrollbar-width))
             and (max-width: if($i == $card-rows, 9000px, width($i + 1) + $scrollbar-width - 1px)) {
-        @include in(width($i), if($i == 1, 256px, 128px), 0, $i);
+        @include in(width($i), if($i == 1, 256px, 128px), if($i == 1, 11, if($i == 2, 6, 5)) * 24px + $margin * 4, $i);
     }
 }
