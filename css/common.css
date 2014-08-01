@@ -89,7 +89,7 @@ html, body {
   background-color: white;
   position: relative; }
   #lml > p > a, #lml > footer > a {
-    color: #0f6faf; }
+    color: #0a66c2; }
   #lml > h1 {
     margin-top: 64px;
     font-size: 48px;
@@ -100,7 +100,7 @@ html, body {
   #lml > h2 {
     margin-top: 64px;
     border-bottom: 1px solid #cccccc;
-    font-size: 24px; }
+    font-size: 20px; }
   #lml > hr {
     border-top: 1px solid #cccccc; }
   #lml caption {
@@ -132,6 +132,3 @@ html, body {
 
 #facebook {
   right: 115px; }
-
-#hatena {
-  right: 230px; }

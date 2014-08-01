@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id='lml'>
-    <p id='twitter'></p><p id='facebook'></p><p id='hatena'></p>
+    <p id='twitter'></p><p id='facebook'></p>
     <p><a href='../'>てくてくぺたぺた - つくったアプリを公開しています！</a></p>
     <h1>Fit Win</h1>
     <p>ウィンドウの移動・サイズ変更ツール</p>
@@ -63,13 +63,20 @@
     <p>最大化でしか使わない・電卓はモニターの中央で固定など、<br>移動・サイズ変更しない・できないアプリを表示しないようにします</p>
     <p><img src='img/p9.png'></p>
     <h2>ダウンロード</h2>
-    <p><a href='dl/fitwin.zip'>ダウンロード 0.3.20140712</a><br><a href='https://docs.google.com/forms/d/1y261eyYnYuB5LwlV9NHfPYD_DaU48GlPGwQdp_iWnWQ/viewform?entry.1558357097=Fit+Win&entry.187745740&entry.1950332360'>バグの報告・要望・感想などぜひ！</a></p>
+    <p><a href='dl/fitwin.zip'>ダウンロード 0.3.20140712</a><br><a href='https://docs.google.com/forms/d/1y261eyYnYuB5LwlV9NHfPYD_DaU48GlPGwQdp_iWnWQ/viewform?entry.1558357097=Fit+Win&entry.187745740&entry.1950332360' target='_blank'>バグの報告・要望・感想などぜひ！</a></p>
     <h2><a name='change-log'>更新履歴</a></h2>
     <p>0.3.20140712<br><a href='#restowa'>ウィンドウの配置を保存・復元する</a>機能を追加<br><a href='#filter'>フィルター</a>（指定のウィンドウをアプリの一覧に表示しない）機能を追加<br>マルチモニターの選択されているモニターを記憶するように変更<br>デフォルトのテンプレートを１つ追加<br>アイコンを微修正</p>
     <p>0.2.20140702<br>常駐機能を追加<br>新しいバージョンの通知機能を追加<br>HaH 表示時にアイコンのコンテキストメニューを表示するショートカットにアプリケーションキーを追加<br>起動時にテンプレートの HaH が表示されないバグを修正</p>
     <p>0.1.20140602<br>公開</p>
-    <h2>紹介いただいたメディア</h2>
-    <p><a href='http://all-freesoft.net/desktop11/window/fitwin/fitwin.html' target='_blank'>Fit Win--オールフリーソフト・Windows 7/8対応フリーソフト--</a><br><a href='http://freesoft-100.com/review/fitwin.html'>Fit Win の評価・レビュー - フリーソフト100</a><br><a href='http://www.forest.impress.co.jp/docs/review/20140618_653114.html' target='_blank'>【レビュー】ウィンドウを指定しておいた枠に合わせて簡単にリサイズ・整列「Fit Win」 - 窓の杜</a><br><a href='http://www.softnavi.com/review/window_sousa/fit_win_1.html' target='_blank'>フリーソフトナヴィ</a></p>
+    <h2>紹介いただいたメディアなどです、ありがとうございます！</h2>
+    <p>
+        <a href='http://pc.mogeringo.com/archives/47077' target='_blank'>これは便利!! ウィンドウを自由にレイアウト配置可能なフリーソフト 『Fit Win』 | PCあれこれ探索</a><br>
+        <a href='http://weekly.ascii.jp/elem/000/000/241/241624/' target='_blank'>週刊アスキー8/12号 No990（7月29日発売) - 週アスPLUS</a><br>
+        <a href='http://all-freesoft.net/desktop11/window/fitwin/fitwin.html' target='_blank'>Fit Win--オールフリーソフト・Windows 7/8対応フリーソフト--</a><br>
+        <a href='http://freesoft-100.com/review/fitwin.html'>Fit Win の評価・レビュー - フリーソフト100</a><br>
+        <a href='http://www.softnavi.com/review/window_sousa/fit_win_1.html' target='_blank'>フリーソフトナヴィ</a><br>
+        <a href='http://www.forest.impress.co.jp/docs/review/20140618_653114.html' target='_blank'>【レビュー】ウィンドウを指定しておいた枠に合わせて簡単にリサイズ・整列「Fit Win」 - 窓の杜</a><br>
+    </p>
     <footer>(C) 2014 <a href='https://twitter.com/hakomof/' target='_blank'>@hakomof</a><a href='../'>てくてくぺたぺた - つくったアプリを公開しています！</a></footer>
 </div>
 
@@ -87,11 +94,6 @@
             button: 'button_count',
             url: 'http://hakomo.github.io/fitwin'
         }).width(105);
-        $('#hatena').socialbutton('hatena', {
-            button: 'standard',
-            url: 'http://hakomo.github.io/fitwin',
-            title: 'Fit Win - ウィンドウの移動・サイズ変更ツール'
-        }).width(55);
     });
 }(jQuery));
 

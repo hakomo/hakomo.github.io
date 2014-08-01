@@ -40,7 +40,7 @@ html, body {
     position: relative;
 
     > p > a, > footer > a {
-        color: #0f6faf;
+        color: hsl(210, 90%, 40%);
     }
 
     > h1 {
@@ -57,7 +57,7 @@ html, body {
     > h2 {
         margin-top: $large-margin;
         border-bottom: $line-color;
-        font-size: $font-size * 1.5;
+        font-size: $font-size * 1.25;
     }
 
     > hr {
@@ -109,8 +109,4 @@ html, body {
 
 #facebook {
     right: 115px;
-}
-
-#hatena {
-    right: 230px;
 }
