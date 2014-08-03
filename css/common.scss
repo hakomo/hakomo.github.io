@@ -6,8 +6,10 @@ $width: 800px + $margin * 4;
 $large-margin: 64px;
 $font-size: 16px;
 $back-color: hsl(170, 40%, 90%);
-$border-color: 1px solid hsl(0, 0, 50%);
-$line-color: 1px solid hsl(0, 0, 80%);
+$border: 1px solid hsl(0, 0, 50%);
+$line-color: hsl(170, 40%, 50%);
+$rule: 1px solid hsl(0, 0, 80%);
+$link-color: hsl(210, 90%, 40%);
 
 html, body {
     height: 100%;
@@ -34,34 +36,37 @@ html, body {
     width: $width;
     margin: auto;
     padding: $margin $margin 0 $margin * 2;
-    border-left: $border-color;
-    border-right: $border-color;
+    border-left: $border;
+    border-right: $border;
     background-color: white;
     position: relative;
 
-    > p > a, > footer > a {
-        color: hsl(210, 90%, 40%);
+    a[href] {
+        color: $link-color;
     }
 
-    > h1 {
+    h1 {
         margin-top: $large-margin;
         font-size: $font-size * 3;
         line-height: 1;
         font-weight: normal;
     }
 
-    > h2, > hr, > p, > table {
+    hr, p, table {
         margin-bottom: $margin;
     }
 
-    > h2 {
-        margin-top: $large-margin;
-        border-bottom: $line-color;
-        font-size: $font-size * 1.25;
+    h2 {
+        margin: $large-margin 0 $margin $margin * -2;
+        padding-left: $margin * 0.5;
+        border-bottom: 1px solid $line-color;
+        border-left: $margin * 1.5 solid $line-color;
+        font-size: $font-size * 1.5;
+        font-weight: normal;
     }
 
-    > hr {
-        border-top: $line-color;
+    hr {
+        border-top: $rule;
     }
 
     caption {
@@ -71,13 +76,13 @@ html, body {
 
     td {
         padding: 4px $margin 4px $margin / 2;
-        border: $line-color;
+        border: $rule;
     }
 
-    > footer {
+    footer {
         margin-top: $large-margin;
         padding: $margin 0;
-        border-top: $line-color;
+        border-top: $rule;
 
         > :last-child {
             margin-left: $margin;
@@ -89,7 +94,6 @@ html, body {
 
     #lml {
         width: 100%;
-        padding-left: $margin;
         border: none;
 
         img, iframe {
@@ -98,7 +102,7 @@ html, body {
     }
 }
 
-#twitter, #facebook, #hatena {
+#twitter, #facebook {
     position: absolute;
     top: $margin + 1px;
 }

@@ -88,20 +88,23 @@ html, body {
   border-right: 1px solid gray;
   background-color: white;
   position: relative; }
-  #lml > p > a, #lml > footer > a {
+  #lml a[href] {
     color: #0a66c2; }
-  #lml > h1 {
+  #lml h1 {
     margin-top: 64px;
     font-size: 48px;
     line-height: 1;
     font-weight: normal; }
-  #lml > h2, #lml > hr, #lml > p, #lml > table {
+  #lml hr, #lml p, #lml table {
     margin-bottom: 24px; }
-  #lml > h2 {
-    margin-top: 64px;
-    border-bottom: 1px solid #cccccc;
-    font-size: 20px; }
-  #lml > hr {
+  #lml h2 {
+    margin: 64px 0 24px -48px;
+    padding-left: 12px;
+    border-bottom: 1px solid #4db3a2;
+    border-left: 36px solid #4db3a2;
+    font-size: 24px;
+    font-weight: normal; }
+  #lml hr {
     border-top: 1px solid #cccccc; }
   #lml caption {
     padding-left: 12px;
@@ -109,21 +112,20 @@ html, body {
   #lml td {
     padding: 4px 24px 4px 12px;
     border: 1px solid #cccccc; }
-  #lml > footer {
+  #lml footer {
     margin-top: 64px;
     padding: 24px 0;
     border-top: 1px solid #cccccc; }
-    #lml > footer > :last-child {
+    #lml footer > :last-child {
       margin-left: 24px; }
 
 @media screen and (max-width: 959px) {
   #lml {
     width: 100%;
-    padding-left: 24px;
     border: none; }
     #lml img, #lml iframe {
       max-width: 100%; } }
-#twitter, #facebook, #hatena {
+#twitter, #facebook {
   position: absolute;
   top: 25px; }
 
