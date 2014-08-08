@@ -69,6 +69,13 @@ html, body {
   line-height: 1.5;
   background-color: #dbf0ec; }
 
+a[href] {
+  color: #0a66c2;
+  text-decoration: none; }
+
+a[href]:hover {
+  text-decoration: underline; }
+
 #wrapper {
   min-height: 100%;
   margin: auto;
@@ -88,8 +95,6 @@ html, body {
   border-right: 1px solid gray;
   background-color: white;
   position: relative; }
-  #lml a[href] {
-    color: #0a66c2; }
   #lml h1 {
     margin-top: 64px;
     font-size: 48px;

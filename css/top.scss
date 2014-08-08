@@ -18,7 +18,7 @@ $scrollbar-width: 17px;
 
     @if $card-rows == 1 {
         .label {
-            > span {
+            span {
                 display: inline-block;
                 width: $card-width / 2 - $margin * 2.5;
                 border-radius: $radius;
@@ -35,7 +35,7 @@ $scrollbar-width: 17px;
         }
     } @else {
         .label {
-            > span {
+            span {
                 display: inline-block;
                 padding: $margin / 2 $margin;
                 border-radius: $radius;
@@ -89,7 +89,7 @@ $scrollbar-width: 17px;
         display: flex;
         flex-wrap: wrap;
 
-        > a {
+        a[href] {
             width: $card-width;
             height: $card-height;
             margin-top: $margin * 4;
@@ -97,9 +97,13 @@ $scrollbar-width: 17px;
             color: black;
             text-decoration: none;
 
-            > div {
+            div {
                 padding: 0 $margin * 2;
             }
+        }
+
+        a[href]:hover {
+            opacity: 0.8;
         }
 
         > :not(:nth-child(#{$card-rows}n+1)) {
@@ -125,15 +129,10 @@ h1 {
 .social {
     padding: $margin * 4 0;
 
-    > a {
-        padding: 0 $margin * 2;
+    a[href] {
+        padding: 0 $margin;
         line-height: 2;
         color: black;
-        text-decoration: none;
-    }
-
-    > :hover {
-        text-decoration: underline;
     }
 }
 
