@@ -1,4 +1,3 @@
-
 @import 'default';
 
 $margin: 24px;
@@ -12,7 +11,6 @@ $rule: 1px solid hsl(0, 0, 80%);
 $link-color: hsl(210, 90%, 40%);
 
 html, body {
-    height: 100%;
     font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
     font-size: $font-size;
     line-height: 1.5;
@@ -28,18 +26,6 @@ a[href]:hover {
     text-decoration: underline;
 }
 
-#wrapper {
-    min-height: 100%;
-    margin: auto;
-    position: relative;
-}
-
-#footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
 #lml {
     box-sizing: border-box;
     width: $width;
@@ -49,49 +35,49 @@ a[href]:hover {
     border-right: $border;
     background-color: white;
     position: relative;
+}
 
-    h1 {
-        margin-top: $large-margin;
-        font-size: $font-size * 3;
-        line-height: 1;
-        font-weight: normal;
-    }
+h1 {
+    margin-top: $large-margin;
+    font-size: $font-size * 3;
+    line-height: 1;
+    font-weight: normal;
+}
 
-    hr, p, table {
-        margin-bottom: $margin;
-    }
+hr, p, table {
+    margin-bottom: $margin;
+}
 
-    h2 {
-        margin: $large-margin 0 $margin $margin * -2;
-        padding-left: $margin * 0.5;
-        border-bottom: 1px solid $line-color;
-        border-left: $margin * 1.5 solid $line-color;
-        font-size: $font-size * 1.5;
-        font-weight: normal;
-    }
+h2 {
+    margin: $large-margin 0 $margin $margin * -2;
+    padding-left: $margin * 0.5;
+    border-bottom: 1px solid $line-color;
+    border-left: $margin * 1.5 solid $line-color;
+    font-size: $font-size * 1.5;
+    font-weight: normal;
+}
 
-    hr {
-        border-top: $rule;
-    }
+hr {
+    border-top: $rule;
+}
 
-    caption {
-        padding-left: $margin / 2;
-        text-align: left;
-    }
+caption {
+    padding-left: $margin / 2;
+    text-align: left;
+}
 
-    td {
-        padding: 4px $margin 4px $margin / 2;
-        border: $rule;
-    }
+td {
+    padding: 4px $margin 4px $margin / 2;
+    border: $rule;
+}
 
-    footer {
-        margin-top: $large-margin;
-        padding: $margin 0;
-        border-top: $rule;
+footer {
+    margin-top: $large-margin;
+    padding: $margin 0;
+    border-top: $rule;
 
-        > :last-child {
-            margin-left: $margin;
-        }
+    > :last-child {
+        margin-left: $margin;
     }
 }
 
@@ -100,10 +86,10 @@ a[href]:hover {
     #lml {
         width: 100%;
         border: none;
+    }
 
-        img, iframe {
-            max-width: 100%;
-        }
+    img, iframe {
+        max-width: 100%;
     }
 }
 

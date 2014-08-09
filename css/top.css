@@ -1,5 +1,114 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+body {
+  line-height: 1; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+nav ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: none; }
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none; }
+
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold; }
+
+del {
+  text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+input, select {
+  vertical-align: middle; }
+
 html, body {
+  height: 100%;
+  font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
   background-color: #edf7f6; }
+
+#wrapper {
+  min-height: 100%;
+  margin: auto;
+  position: relative; }
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+
+.label span {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px; }
+
+#header {
+  display: flex;
+  flex-wrap: wrap; }
+  #header > div {
+    box-sizing: border-box;
+    width: 300px;
+    height: 128px; }
+
+#container > :last-child {
+  margin-bottom: 32px; }
+
+.card {
+  display: flex;
+  flex-wrap: wrap; }
+  .card a[href] {
+    width: 300px;
+    height: 288px;
+    margin-top: 32px;
+    border-radius: 4px;
+    color: black;
+    text-decoration: none; }
+    .card a[href] div {
+      padding: 0 16px; }
+  .card a[href]:hover {
+    opacity: 0.8; }
 
 h1 {
   font-size: 32px;
@@ -12,9 +121,12 @@ h1 {
 .social {
   padding: 32px 0; }
   .social a[href] {
-    padding: 0 8px;
+    padding: 4px 8px;
     line-height: 2;
-    color: black; }
+    color: black;
+    text-decoration: none; }
+  .social a[href]:hover {
+    text-decoration: underline; }
 
 img {
   border-radius: 4px 4px 0 0; }
@@ -33,10 +145,7 @@ img {
 
 @media screen and (min-width: 0px) and (max-width: 624px) {
   .label span {
-    display: inline-block;
-    width: 130px;
-    border-radius: 4px;
-    padding: 4px 8px; }
+    width: 130px; }
   .label > :nth-child(even) {
     margin-left: 8px; }
   .label > :nth-child(n+3) {
@@ -49,13 +158,7 @@ img {
     width: 300px; }
 
   #header {
-    height: 256px;
-    display: flex;
-    flex-wrap: wrap; }
-    #header > div {
-      box-sizing: border-box;
-      width: 300px;
-      height: 100px; }
+    height: 256px; }
     #header > :not(:nth-child(1n+1)) {
       margin-left: 8px; }
 
@@ -64,30 +167,10 @@ img {
 
   #container {
     padding-bottom: 296px; }
-    #container > :last-child {
-      margin-bottom: 32px; }
 
-  .card {
-    display: flex;
-    flex-wrap: wrap; }
-    .card a[href] {
-      width: 300px;
-      height: 288px;
-      margin-top: 32px;
-      border-radius: 4px;
-      color: black;
-      text-decoration: none; }
-      .card a[href] div {
-        padding: 0 16px; }
-    .card a[href]:hover {
-      opacity: 0.8; }
-    .card > :not(:nth-child(1n+1)) {
-      margin-left: 8px; } }
+  .card > :not(:nth-child(1n+1)) {
+    margin-left: 8px; } }
 @media screen and (min-width: 625px) and (max-width: 932px) {
-  .label span {
-    display: inline-block;
-    padding: 4px 8px;
-    border-radius: 4px; }
   .label > :not(:first-child) {
     margin-left: 8px; }
 
@@ -98,13 +181,7 @@ img {
     width: 608px; }
 
   #header {
-    height: 128px;
-    display: flex;
-    flex-wrap: wrap; }
-    #header > div {
-      box-sizing: border-box;
-      width: 300px;
-      height: 100px; }
+    height: 128px; }
     #header > :not(:nth-child(2n+1)) {
       margin-left: 8px; }
 
@@ -113,30 +190,10 @@ img {
 
   #container {
     padding-bottom: 200px; }
-    #container > :last-child {
-      margin-bottom: 32px; }
 
-  .card {
-    display: flex;
-    flex-wrap: wrap; }
-    .card a[href] {
-      width: 300px;
-      height: 288px;
-      margin-top: 32px;
-      border-radius: 4px;
-      color: black;
-      text-decoration: none; }
-      .card a[href] div {
-        padding: 0 16px; }
-    .card a[href]:hover {
-      opacity: 0.8; }
-    .card > :not(:nth-child(2n+1)) {
-      margin-left: 8px; } }
+  .card > :not(:nth-child(2n+1)) {
+    margin-left: 8px; } }
 @media screen and (min-width: 933px) and (max-width: 9000px) {
-  .label span {
-    display: inline-block;
-    padding: 4px 8px;
-    border-radius: 4px; }
   .label > :not(:first-child) {
     margin-left: 8px; }
 
@@ -144,13 +201,7 @@ img {
     width: 916px; }
 
   #header {
-    height: 128px;
-    display: flex;
-    flex-wrap: wrap; }
-    #header > div {
-      box-sizing: border-box;
-      width: 300px;
-      height: 100px; }
+    height: 128px; }
     #header > :not(:nth-child(3n+1)) {
       margin-left: 8px; }
 
@@ -159,22 +210,6 @@ img {
 
   #container {
     padding-bottom: 152px; }
-    #container > :last-child {
-      margin-bottom: 32px; }
 
-  .card {
-    display: flex;
-    flex-wrap: wrap; }
-    .card a[href] {
-      width: 300px;
-      height: 288px;
-      margin-top: 32px;
-      border-radius: 4px;
-      color: black;
-      text-decoration: none; }
-      .card a[href] div {
-        padding: 0 16px; }
-    .card a[href]:hover {
-      opacity: 0.8; }
-    .card > :not(:nth-child(3n+1)) {
-      margin-left: 8px; } }
+  .card > :not(:nth-child(3n+1)) {
+    margin-left: 8px; } }

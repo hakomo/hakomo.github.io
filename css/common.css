@@ -63,7 +63,6 @@ input, select {
   vertical-align: middle; }
 
 html, body {
-  height: 100%;
   font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -76,16 +75,6 @@ a[href] {
 a[href]:hover {
   text-decoration: underline; }
 
-#wrapper {
-  min-height: 100%;
-  margin: auto;
-  position: relative; }
-
-#footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%; }
-
 #lml {
   box-sizing: border-box;
   width: 896px;
@@ -95,41 +84,49 @@ a[href]:hover {
   border-right: 1px solid gray;
   background-color: white;
   position: relative; }
-  #lml h1 {
-    margin-top: 64px;
-    font-size: 48px;
-    line-height: 1;
-    font-weight: normal; }
-  #lml hr, #lml p, #lml table {
-    margin-bottom: 24px; }
-  #lml h2 {
-    margin: 64px 0 24px -48px;
-    padding-left: 12px;
-    border-bottom: 1px solid #4db3a2;
-    border-left: 36px solid #4db3a2;
-    font-size: 24px;
-    font-weight: normal; }
-  #lml hr {
-    border-top: 1px solid #cccccc; }
-  #lml caption {
-    padding-left: 12px;
-    text-align: left; }
-  #lml td {
-    padding: 4px 24px 4px 12px;
-    border: 1px solid #cccccc; }
-  #lml footer {
-    margin-top: 64px;
-    padding: 24px 0;
-    border-top: 1px solid #cccccc; }
-    #lml footer > :last-child {
-      margin-left: 24px; }
+
+h1 {
+  margin-top: 64px;
+  font-size: 48px;
+  line-height: 1;
+  font-weight: normal; }
+
+hr, p, table {
+  margin-bottom: 24px; }
+
+h2 {
+  margin: 64px 0 24px -48px;
+  padding-left: 12px;
+  border-bottom: 1px solid #4db3a2;
+  border-left: 36px solid #4db3a2;
+  font-size: 24px;
+  font-weight: normal; }
+
+hr {
+  border-top: 1px solid #cccccc; }
+
+caption {
+  padding-left: 12px;
+  text-align: left; }
+
+td {
+  padding: 4px 24px 4px 12px;
+  border: 1px solid #cccccc; }
+
+footer {
+  margin-top: 64px;
+  padding: 24px 0;
+  border-top: 1px solid #cccccc; }
+  footer > :last-child {
+    margin-left: 24px; }
 
 @media screen and (max-width: 959px) {
   #lml {
     width: 100%;
     border: none; }
-    #lml img, #lml iframe {
-      max-width: 100%; } }
+
+  img, iframe {
+    max-width: 100%; } }
 #twitter, #facebook {
   position: absolute;
   top: 25px; }

@@ -1,3 +1,4 @@
+@import 'default';
 
 $margin: 8px;
 $radius: 4px;
@@ -5,9 +6,73 @@ $card-rows: 3;
 $card-width: 300px;
 $card-height: 288px;
 $scrollbar-width: 17px;
+$font-size: 16px;
+
+html, body {
+    height: 100%;
+    font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    font-size: $font-size;
+    line-height: 1.5;
+    background-color: hsl(170, 40%, 95%);
+}
+
+#wrapper {
+    min-height: 100%;
+    margin: auto;
+    position: relative;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
 
 @function width($n) {
     @return $card-width * $n + $margin * ($n - 1);
+}
+
+.label span {
+    display: inline-block;
+    padding: $margin / 2 $margin;
+    border-radius: $radius;
+}
+
+#header {
+    display: flex;
+    flex-wrap: wrap;
+
+    > div {
+        box-sizing: border-box;
+        width: $card-width;
+        height: 128px;
+    }
+}
+
+#container > :last-child {
+    margin-bottom: $margin * 4;
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+
+    a[href] {
+        width: $card-width;
+        height: $card-height;
+        margin-top: $margin * 4;
+        border-radius: $radius;
+        color: black;
+        text-decoration: none;
+
+        div {
+            padding: 0 $margin * 2;
+        }
+    }
+
+    a[href]:hover {
+        opacity: 0.8;
+    }
 }
 
 @mixin card-back($hue) {
@@ -19,10 +84,7 @@ $scrollbar-width: 17px;
     @if $card-rows == 1 {
         .label {
             span {
-                display: inline-block;
                 width: $card-width / 2 - $margin * 2.5;
-                border-radius: $radius;
-                padding: $margin / 2 $margin;
             }
 
             > :nth-child(even) {
@@ -34,16 +96,8 @@ $scrollbar-width: 17px;
             }
         }
     } @else {
-        .label {
-            span {
-                display: inline-block;
-                padding: $margin / 2 $margin;
-                border-radius: $radius;
-            }
-
-            > :not(:first-child) {
-                margin-left: $margin;
-            }
+        .label > :not(:first-child) {
+            margin-left: $margin;
         }
     }
 
@@ -59,14 +113,6 @@ $scrollbar-width: 17px;
 
     #header {
         height: $header-height;
-        display: flex;
-        flex-wrap: wrap;
-
-        > div {
-            box-sizing: border-box;
-            width: $card-width;
-            height: 100px;
-        }
 
         > :not(:nth-child(#{$card-rows}n+1)) {
             margin-left: $margin;
@@ -79,41 +125,11 @@ $scrollbar-width: 17px;
 
     #container {
         padding-bottom: $footer-height;
-
-        > :last-child {
-            margin-bottom: $margin * 4;
-        }
     }
 
-    .card {
-        display: flex;
-        flex-wrap: wrap;
-
-        a[href] {
-            width: $card-width;
-            height: $card-height;
-            margin-top: $margin * 4;
-            border-radius: $radius;
-            color: black;
-            text-decoration: none;
-
-            div {
-                padding: 0 $margin * 2;
-            }
-        }
-
-        a[href]:hover {
-            opacity: 0.8;
-        }
-
-        > :not(:nth-child(#{$card-rows}n+1)) {
-            margin-left: $margin;
-        }
+    .card > :not(:nth-child(#{$card-rows}n+1)) {
+        margin-left: $margin;
     }
-}
-
-html, body {
-    background-color: hsl(170, 40%, 95%);
 }
 
 h1 {
@@ -130,9 +146,14 @@ h1 {
     padding: $margin * 4 0;
 
     a[href] {
-        padding: 0 $margin;
+        padding: 4px $margin;
         line-height: 2;
         color: black;
+        text-decoration: none;
+    }
+
+    a[href]:hover {
+        text-decoration: underline;
     }
 }
 
