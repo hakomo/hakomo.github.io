@@ -163,10 +163,10 @@ img {
       margin-left: 8px; }
 
   #footer {
-    height: 296px; }
+    height: 320px; }
 
   #container {
-    padding-bottom: 296px; }
+    padding-bottom: 320px; }
 
   .card > :not(:nth-child(1n+1)) {
     margin-left: 8px; } }

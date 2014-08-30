@@ -83,7 +83,7 @@
         var a = [];
         for(var k in keylog)
             a.push({ keyId: k, count: keylog[k] });
-        a.sort(function(p, q) q.count - p.count);
+        a.sort(function(p, q) { return q.count - p.count; });
         return a;
     }();
 
@@ -156,7 +156,7 @@
                 content: popover(cd)[0].outerHTML,
                 html: true,
                 placement: 'bottom',
-                trigger: 'focus',
+                //trigger: 'focus',
             });
     }
 
@@ -181,7 +181,7 @@
             if(ct > 0)
                 a.push(ct);
         }
-        a.sort(function(p, q) p - q);
+        a.sort(function(p, q) { return p - q; });
         var b = [a[0]];
         for(i = 1; i < a.length; ++i) {
             if(b[b.length - 1] !== a[i])
@@ -203,7 +203,7 @@
             keys(15.5, 1.5, [0x2d, 0x24, 0x21]), keys(15.5, 2.5, [0x2e ,0x23 , 0x22]),
             key(16.5, 4.5, 0x26), keys(15.5, 5.5, [0x25, 0x28, 0x27]),
         ], b = $();
-        visibleKeyIds.sort(function(p, q) p - q);
+        visibleKeyIds.sort(function(p, q) { return p - q; });
         var c = uniqueCounts();
         for(i = 0; i < a.length; ++i) {
             a[i].each(function() {
@@ -267,7 +267,7 @@
                 }
             }
         }
-        b.sort(function(p, q) q.ease - p.ease);
+        b.sort(function(p, q) { return q.ease - p.ease; });
         for(i = 0; i < b.length && b[i].ease > 0; ++i)
             a[b[i].keyId].ease = i;
         for(j = i; j < b.length; ++j)
@@ -276,7 +276,7 @@
         var c = [];
         for(var k in a)
             c.push({ keyId: k, diff: a[k].frequent - a[k].ease });
-        c.sort(function(p, q) p.diff - q.diff);
+        c.sort(function(p, q) { return p.diff - q.diff; });
 
         var t = $('.excessive-demand').css('width', 350 + 'px');
         for(i = 0; i < 15; ++i)
