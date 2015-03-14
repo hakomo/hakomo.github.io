@@ -1,0 +1,32 @@
+
+body
+    background-color hsl(0, 0%, 95%)
+    font 16px / 1.5 Meiryo
+    margin 10px
+
+div
+    margin 0 auto
+    max-width 700px
+
+h1
+    font normal 32px / 1 Meiryo
+    margin 0
+
+p
+    margin 64px 0
+
+.external-links
+    margin-top 0
+
+    a
+        margin-right 16px
+
+a
+    color hsl(210, 99%, 40%)
+    text-decoration none
+
+    &:hover
+        text-decoration underline
+
+        img
+            opacity 0.7

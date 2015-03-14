@@ -1,0 +1,127 @@
+
+body
+    background-color hsl(0, 0%, 95%)
+    font 16px / 1.5 Meiryo
+    margin 0
+
+.container
+    margin auto
+    width 908px
+
+.wrapper
+    float right
+    margin-top 24px
+    width 200px
+
+nav
+    position fixed
+    width 200px
+
+    @media screen and (max-width: 930px)
+        position static
+
+    ul
+        list-style-type none
+        margin 0
+        padding 0
+
+    a
+        color black
+        display block
+        line-height 2
+        padding-left 16px
+        text-decoration none
+
+        &:hover
+            background-color hsl(170, 50%, 80%)
+
+        &.child
+            padding-left 32px
+
+.social
+    margin-top 48px
+    position relative
+
+.twitter
+    position absolute
+    top -24px
+
+.facebook
+    left 96px
+    position absolute
+    top -24px
+
+article
+    float left
+    width 700px
+
+    ul
+        list-style-type square
+        margin 24px 0
+        padding-left 24px
+
+        ul
+            margin-top 0
+
+    .change-log, .change-log ul:not(.small)
+        list-style-type none
+
+    a
+        color hsl(210, 99%, 40%)
+        text-decoration none
+
+        &:hover
+            text-decoration underline
+
+header, p, .margin
+    margin 24px 0
+
+h1
+    font normal 48px / 1 Meiryo
+    margin 64px 0 -24px 0
+
+h2, h3
+    border-bottom solid 1px hsl(170, 50%, 60%)
+    border-left solid 16px hsl(170, 50%, 60%)
+    font bold 20px / 1.5 Meiryo
+    margin 64px 0 24px 0
+    padding-left 8px
+
+h2 + h3
+    margin-top 0
+
+h4
+    font bold 16px / 1.5 Meiryo
+    margin 24px 0 -24px 0
+
+code
+    background-color white
+    border solid 1px hsl(0, 0%, 75%)
+    font: 16px / 2 Meiryo
+    margin 0 8px
+    padding 0 8px
+
+table
+    background-color white
+    border-collapse collapse
+
+caption
+    margin-left 16px
+    text-align left
+
+td
+    border solid 1px hsl(0, 0%, 75%)
+    padding 4px 16px
+
+img
+
+.small
+    font-size 14px
+
+footer
+    border-top solid 1px hsl(0, 0%, 75%)
+    margin 24px 0
+    padding-top 24px
+
+    a
+        margin-left 16px

@@ -1,0 +1,287 @@
+doctype html
+meta charset='utf-8'
+title Fit Win - ウィンドウを移動・サイズ変更するフリーソフト
+meta http-equiv='x-ua-compatible' content='ie=edge'
+meta name='author' content='hakomo'
+meta name='viewport' content='width=device-width, initial-scale=1'
+link rel='stylesheet' href='styles/style.css'
+.container
+    article
+        header: a href='../' てくてくぺたぺた - つくったアプリを公開しています
+        h1#fitwin Fit Win
+        p Fit Win（フィットウィン）は複数のウィンドウを並べたり、移動・サイズ変更できる Windows 用フリーソフトです。
+        ul
+            li マウスをドラッグ＆ドロップするだけで簡単に素早く
+            li マルチディスプレイや 4K ディスプレイにたくさんのウィンドウを効率よく配置
+            li Hit a Hint を使ったキーボード操作も
+        p: iframe width='560' height='315' src='https://www.youtube.com/embed/hpTZREqNQm8' frameborder='0' allowfullscreen=''
+        p
+            <a href='downloads/fitwin.zip'>ダウンロード v1.2 2015/03/14</a><br>
+            <span class='small'>動作環境は Windows 8/7 32/64bit ・ <a href='http://www.microsoft.com/ja-jp/download/details.aspx?id=30653' target='_blank'>.NET Framework 4.5</a> ・ Internet Explorer 10 以上です。</span>
+        p: a href='https://docs.google.com/forms/d/1y261eyYnYuB5LwlV9NHfPYD_DaU48GlPGwQdp_iWnWQ/viewform?entry.1558357097=Fit+Win&entry.187745740&entry.1950332360' target='_blank' バグの報告・要望
+        h2#manual マニュアル
+        h3#apps アプリの一覧
+        p 起動しているアプリケーションの一覧です。
+        p: img src='images/a.png' alt='Drag and Drop App Icon to Editor, Template, Easy Movement or Numerical'
+        ul
+            li ウィンドウを移動・サイズ変更するには、アイコンを周囲（レイアウトエディタ・レイアウトテンプレート・簡易移動・数値指定）にドラッグ＆ドロップします
+            li ウィンドウをアクティブにするにはアイコンをクリックします
+            li ウィンドウを操作するにはアイコンを右クリックします
+        h4 フィルター
+        p 指定したアプリを非表示にできます。最大化でしか使わない・電卓はモニターの中央で固定など、移動・サイズ変更しない・できないアプリを非表示にできます。
+        p: img src='images/b.png' alt='Filter'
+        h3#layout レイアウト
+        p ウィンドウを敷き詰められます。レイアウト（ウィンドウをどのように並べるのか）をエディタで編集し、よく使うレイアウトをテンプレートで一覧できます。
+        ul
+            li ウィンドウを敷き詰めるには、アプリアイコンをエディタ・テンプレートにドラッグ＆ドロップします
+        h3#editor レイアウトエディタ
+        p: img src='images/c.png' alt='Split, Size and Delete Editor'
+        ul
+            li 分割するにはエディタを右クリックします
+            li サイズ変更するにはボーダーをドラッグします
+            li ボーダーを削除するにはボーダーを右クリックします
+            li 追加ボタンでテンプレートに追加できます
+            li クリアボタンでクリアできます
+        ul
+            li 1px 単位でサイズ変更するにはボーダー上でマウスホイールします（オプションから有効にする必要があります）
+        h3#template レイアウトテンプレート
+        p: img src='images/d.png' alt='Template'
+        ul
+            li テンプレートをクリックするとエディタにコピーされるので編集できます
+            li 並び替えるにはテンプレートをドラッグします
+            li 削除するにはテンプレートを右クリックします
+        h3#easy-move 簡易移動
+        p: img src='images/e.png' alt='Easy Movement'
+        ul: li ウィンドウを右上や中央などの単純な位置へサイズ変更せずに移動するには、アプリアイコンを簡易移動にドラッグ＆ドロップします
+        h3#numerical 数値指定
+        p: img src='images/f.png' alt='Numerical'
+        p ウィンドウの位置やサイズを数値指定して柔軟に移動・サイズ変更できます。しかし数値指定のルールが独特なので使いこなすのは難しいかもしれません。
+        ul
+            li ウィンドウを移動・サイズ変更するには、アプリアイコンを数値指定（テキストボックスを含む）にドラッグ＆ドロップします
+            li テキストボックスに入力して追加ボタンもしくは Enter で追加できます
+            li クリックするとテキストボックスにコピーされるので編集できます
+            li 並び替えるにはドラッグします
+            li 削除するには右クリックします
+        h4 数値指定のルール
+        p <code>X 座標, Y 座標, 幅, 高さ, 表示名</code>のように 5 つの要素をカンマで区切ります。
+        ul
+            li
+                | X 座標・ Y 座標が、
+                ul
+                    li 整数のときプライマリモニターの左上を原点とする座標系における位置を表します
+                    li 0.0 以上 1.0 以下の少数のときフォーカスモニターの一端を 0 、もう一端を 1 とした割合を表します
+                    li 省略されると元の位置を変更しません
+            li
+                | 幅・高さが、
+                ul
+                    li 正整数のときピクセルを表します
+                    li 0.0 以上 1.0 以下の少数のときフォーカスモニターの幅と高さを 1 とした割合を表します
+                    li 省略されると元のサイズを変更しません
+            li
+                | 表示名が、
+                ul
+                    li 数値指定に表示されます
+                    li 省略されると<code>X 座標, Y 座標, 幅, 高さ</code>が表示されます
+        p 整数・少数・省略は自由に組み合わせられます。また 0 と 0.0 、 1 と 1.0 は意味が異なるので気をつけてください。
+        h3#show-hide 表示・非表示
+        p Fit Win は常駐アプリなので使うときのみ表示して、使わないときには非表示で起動したままにします。そのためスタートアップへの登録をおすすめします。
+        p: img src='images/g.png' alt='Show and Hide'
+        ul
+            li
+                | 表示するには、
+                ul
+                    li タスクトレイボタンをダブルクリックします
+                    li fitwin.exe をタスクバーに表示してタスクバーボタンをクリックします
+                    li fitwin.exe をタスクバーに表示して Win + 数字キーを押します
+                    li fitwin.exe を実行します（ランチャーに組み込めます）
+            li.margin 非表示にするには、閉じる・最小化する・ Esc キーを押します
+            li 素早くウィンドウを移動・サイズ変更するには、左 Alt キーを押したまま移動・サイズ変更したいウィンドウをドラッグします。すると Fit Win が表示されるのでそのままドロップできます。そして左 Alt キーを離すと Fit Win が非表示になります。
+        h3#multi マルチモニター
+        p: img src='images/h.png' alt='Multiple Monitor'
+        p モニターの一覧です。シングルモニターでは必要ないのでオプションから非表示にしましょう。
+        h4 フォーカスモニター
+        p 背景が水色のモニターをフォーカスモニターと呼びます。複数あるモニターのうちどのモニターに Fit Win がウィンドウを移動するのかというと、フォーカスモニターに移動します。
+        ul: li
+            | フォーカスモニターを変更するには、
+            ul
+                li モニターをクリックします
+                li マルチモニター上でマウスホイールします（アプリアイコンをドラッグ中でも可能です）
+                li Space ・ Shift + Space キーを押します
+        h3#keyboard キーボード
+        p Hit a Hint を使うとマウスを使わずにキーボードのみでウィンドウを移動・サイズ変更できます。メニューから Hit a Hint に切り替えましょう。
+        p: img src='images/i.png' alt='Hit a Hint'
+        p 例えばメモ帳をモニター右 3 分の 1 に移動・サイズ変更するときには<code>TSFD</code>と入力します。
+        p 背景がキミドリ色のアルファベット列をヒント、背景が水色のアプリアイコンをフォーカスアイコンと呼びます。
+        ul
+            li レイアウトテンプレート・簡易移動・数値指定のヒントを入力すると、フォーカスアイコンをドラッグ＆ドロップするときと同様のウィンドウの移動・サイズ変更ができます
+            li.margin
+                | フォーカスアイコンを変更するには、
+                ul
+                    li アプリアイコンのヒントを入力します
+                    li 方向キーを押します
+            li
+                | フォーカスモニターを変更するには、
+                ul
+                    li モニターのヒントを入力します
+                    li Space ・ Shift + Space キーを押します
+        p ヒントの頭文字はそれぞれ Task, Easy Movement, Numerical, Multiple Monitor の頭文字です。ヒントの入力に慣れたらオプションからヒントを分離することをおすすめします。
+        p: img src='images/j.png' alt='Easy Movement Hint'
+        p 簡易移動のヒントはキーボード配列と対応します。
+        table
+            caption ショートカットの一覧
+            tr <td>非表示にする</td><td>Esc</td>
+            tr <td>数値指定を追加する</td><td>Enter</td>
+            tr <td>メニューを表示する</td><td>Alt</td>
+            tr <td>元に戻す</td><td>Ctrl + Z</td>
+            tr <td>フォーカスアイコンを数値指定で操作</td><td>Ctrl + N</td>
+            tr <td>Hit a Hint を切り替える</td><td>Ctrl + F</td>
+            tr <td>フォーカスモニターを変更する</td><td>Space, Shift + Space</td>
+            tr <td>フォーカスアイコンを変更する</td><td>方向キー</td>
+            tr <td>ヒントの入力を元に戻す</td><td>Backspace</td>
+            tr <td>ウィンドウをアクティブにする</td><td>Enter</td>
+            tr <td>ウィンドウを操作する</td><td>Apps, ;</td>
+        h2#faq よくある質問
+        ul
+            li
+                | 「 Windows によって PC が保護されました」と表示される
+                ul: li Fit Win は安全です。詳細情報ボタン、実行ボタンの順にクリックしてください。
+            li
+                | まれに Fit Win が表示されない
+                ul: li Windows の仕様なのであきらめてください
+            li
+                | ウィンドウをサイズ変更すると少し大きい
+                ul: li ウィンドウには最小サイズがあり、それよりも小さいサイズ変更はできません
+            li
+                | ウィンドウがサイズ変更されない
+                ul: li サイズ変更や最大化ができないウィンドウがあります
+            li
+                | 直接ならウィンドウを移動・サイズ変更できるのに Fit Win からはできない
+                ul: li タイトルバーが独自の GUI を持つウィンドウに多いですが Fit Win では対応できません。そのアプリの開発元に対応してもらってください。
+            li
+                | 操作したウィンドウがまれに Fit Win より前面になる・中身がおかしくなる
+                ul: li 原因不明です
+            li
+                | 左 Alt キーを押したままドラッグが動かない
+                ul: li 他のアプリをすべて終了させると動くのであれば、グローバルフックする他のアプリと競合しています。オプションからショートカットを変更するか、このショートカットか競合しているアプリをあきらめてください。
+        h2#change-log 更新履歴
+        ul.change-log
+            li
+                | v1.2 2015/03/14
+                ul.small
+                    li Fit Win を管理者権限が必要なフォルダに配置したときのエラーが修正
+                    li 数値を入力するタイプのオプションの一部が一定の条件下でおかしくなるバグが修正
+                    li 数値指定のテキストボックスにアプリアイコンをドラッグアンドドロップする相当の操作をキーボードのみでできるように（ Hit a Hint を表示して Ctrl + N ）
+            li
+                | v1.1 2014/10/19
+                ul
+                    li
+                        | 新機能
+                        ul.small
+                            li Fit Win が最大化できるように
+                            li ウィンドウを移動・サイズ変更するときに予測が表示されるように
+                            li オプションが増えました
+                            li ツールバーが追加
+                            li マルチモニター上のマウスホイールでフォーカスモニターを変更できるように
+                            li レイアウトエディタを 1px 単位でサイズ変更できるように
+                            li 数値指定が追加
+                            li 簡易移動が追加
+                            li 素早くウィンドウを移動・サイズ変更するショートカットが追加
+                    li
+                        | バグの修正
+                        ul.small
+                            li Win + 数字キーで Fit Win が表示されないバグが修正
+                            li ヒントが 50 以上あるとおかしくなるバグが修正
+                            li レイアウトエディタを分割する処理・ボーダーを削除する処理のバグが修正
+                            li 最新のバージョンかどうかの確認が非同期ではなく同期していたバグが修正
+                    li
+                        | 変更
+                        ul.small
+                            li Fit Win をアプリの一覧から非表示にする機能がフィルターに統合
+                            li MIT ライセンスになりました（今後も個人・法人ともに無償でお使いいただけます）
+                            li Tab キーを押すとテキストボックスのフォーカスが遷移するように
+                            li いちから書き直され、 Internet Explorer に依存するように
+                            li アプリアイコン・モニターのヒントが変更
+                            li ウィンドウの配置を復元する機能が一時的に無効に
+                            li オプションファイル（ fitwin.data ）の互換性がなくなりました
+                            li デザインと文言が変更
+                            li デフォルトのレイアウトテンプレートが 1 つ削除
+                            li 並び替えの GUI が変更
+                            li 非常駐が無効に
+                    li
+                        | 改善
+                        ul.small
+                            li Fit Win を次に起動したときに位置とサイズを復元する処理が改善
+                            li Fit Win を表示する処理が改善
+                            li Page Up, Page Down, End, Home キーを押すとすべてがスクロールするように
+                            li アプリの一覧・モニターの一覧・ヒントの不要な更新が減り、ちらつきが軽減され、高速に
+                            li ウィンドウを最大化する処理が改善
+                            li フォーカスタスクが変更されたときに、フォーカスタスクが見えるようスクロールされるように
+                            li マウスイベントがヒントを透過するようになり、ヒントを表示したままのマウス操作が改善
+                            li モニター解像度のアスペクト比を保つ処理が改善
+            li
+                | v0.3 2014/07/12
+                ul.small
+                    li アイコンが微修正
+                    li ウィンドウの配置を復元する機能が追加
+                    li デフォルトのレイアウトテンプレートが 1 つ追加
+                    li フィルターが追加
+                    li フォーカスモニターを記憶するように
+            li
+                | v0.2 2014/07/02
+                ul.small
+                    li ウィンドウを操作するショートカットに Apps が追加
+                    li 常駐が追加
+                    li 新しいバージョンの通知機能が追加
+                    li 起動したときにレイアウトテンプレートのヒントが表示されないバグが修正
+            li
+                | v0.1 2014/06/02
+                ul.small
+                    li 公開
+        h2#media 掲載されたメディアなどです、ありがとうございます！
+        ul.small
+            li: a href='http://weekly.ascii.jp/elem/000/000/245/245718/' target='_blank' ウインドウをリサイズ＆キッチリ整理『Fit Win』｜無料ソフトの殿堂 - 週アスPLUS
+            li: a href='http://pc.mogeringo.com/archives/47077' target='_blank' これは便利!! ウィンドウを自由にレイアウト配置可能なフリーソフト 『Fit Win』 | PCあれこれ探索
+            li: a href='http://weekly.ascii.jp/elem/000/000/241/241624/' target='_blank' 週刊アスキー8/12号 No990（7月29日発売) - 週アスPLUS
+            li: a href='http://all-freesoft.net/desktop11/window/fitwin/fitwin.html' target='_blank' Fit Win--オールフリーソフト・Windows 7/8対応フリーソフト--
+            li: a href='http://freesoft-100.com/review/fitwin.html' target='_blank' Fit Win の評価・レビュー - フリーソフト100
+            li: a href='http://www.softnavi.com/review/window_sousa/fit_win_1.html' target='_blank' フリーソフトナヴィ
+            li: a href='http://www.forest.impress.co.jp/docs/review/20140618_653114.html' target='_blank' 【レビュー】ウィンドウを指定しておいた枠に合わせて簡単にリサイズ・整列「Fit Win」 - 窓の杜
+        footer
+            | (C) 2014-2015
+            a href='https://twitter.com/hakomof/' target='_blank' @hakomof
+            a href='../' てくてくぺたぺた - つくったアプリを公開しています
+    .wrapper: nav.small
+        ul
+            li: a href='#fitwin' Fit Win
+            li: a href='#manual' マニュアル
+            li: a.child href='#apps' アプリの一覧
+            li: a.child href='#layout' レイアウト
+            li: a.child href='#editor' レイアウトエディタ
+            li: a.child href='#template' レイアウトテンプレート
+            li: a.child href='#easy-move' 簡易移動
+            li: a.child href='#numerical' 数値指定
+            li: a.child href='#show-hide' 表示・非表示
+            li: a.child href='#multi' マルチモニター
+            li: a.child href='#keyboard' キーボード
+            li: a href='#faq' よくある質問
+            li: a href='#change-log' 更新履歴
+            li: a href='#media' 掲載されたメディア
+        .social
+            .twitter
+            .facebook
+            | 気に入りましたら励みになるので応援してください！
+script src='/scripts/googleanalytics.js'
+script src='/scripts/jquery-2.1.1.min.js'
+script src='/scripts/jquery.socialbutton-1.9.1.min.js'
+javascript:
+    $(function() {
+        $('.twitter').socialbutton('twitter', {
+            button: 'horizontal',
+            text: document.title,
+            url: 'http://hakomo.github.io/fitwin/'
+        });
+        $('.facebook').socialbutton('facebook_like', {
+            button: 'button_count',
+            url: 'http://hakomo.github.io/fitwin/'
+        });
+    });
