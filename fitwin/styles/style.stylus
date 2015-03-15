@@ -113,8 +113,6 @@ td
     border solid 1px hsl(0, 0%, 75%)
     padding 4px 16px
 
-img
-
 .small
     font-size 14px
 
