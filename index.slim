@@ -6,7 +6,7 @@ meta name='author' content='hakomo'
 meta name='viewport' content='width=device-width, initial-scale=1'
 link rel='stylesheet' href='styles/style.css'
 div
-    h1 てくてくぺたぺた
+    h1: img src='images/logo.png' alt='logo'
     p.external-links
         a target='_blank' href='https://github.com/hakomo/' Github
         a target='_blank' href='http://qiita.com/hakomo' Qiita
@@ -14,13 +14,35 @@ div
         a target='_blank' href='http://hakomof.hatenablog.com/' Blog
         a target='_blank' href='mailto:hakomof@gmail.com' Email
         a target='_blank' href='https://docs.google.com/forms/d/1y261eyYnYuB5LwlV9NHfPYD_DaU48GlPGwQdp_iWnWQ/viewform' バグの報告・要望
+    p.change-log
+        a href='javascript:void(0)' とじる
+        / span <br>2015/04/** インビジゴーストを公開
+        span <br>2015/03/14 Fit Win を更新
+        span <br>2014/10/19 Fit Win を更新
+        span <br>2014/08/31 kaisekey を公開
+        span <br>2014/08/** ToCon の公開を停止
+        span <br>2014/07/12 てくてくぺたぺたを公開
+        span <br>2014/07/12 Fit Win を更新
+        span <br>2014/07/02 Fit Win を更新
+        span <br>2014/06/02 Fit Win を公開
+        span <br>2013/08/18 ToCon を公開
+    / p
+    /     a href='invisible/'
+    /         img src='images/invisible.png' alt='invisible'
+    /     br
+    /     a href='invisible/' インビジゴースト v1.0
+    /     | <br>見えざる敵の居所を探り、迎え撃て！ PC ブラウザゲームです。
+    /     | <br><br>CoffeeScript と Phaser で書いた
+    /     a<> target='_blank' href='#' ソース
+    /     | も公開しています。
+    /     | <br>2015/04/**
     p
         a href='kaisekey/'
             img src='images/kaisekey.png' alt='kaisekey'
         br
         a href='kaisekey/' kaisekey
         | <br>キーバインドをカスタマイズする過程でつくったキーロガーと
-        a target='_blank' href='http://qiita.com/hakomo/items/a19eb4b08bc2b3aa1533' カスタマイズの解説
+        a<> target='_blank' href='http://qiita.com/hakomo/items/a19eb4b08bc2b3aa1533' カスタマイズの解説
         | です。
         | <br>2014/08/31
     p
@@ -36,4 +58,17 @@ div
         | ToCon
         | <br>ToDo を管理する Web サービスです。公開を停止しました。
         | <br>2013/08/18 - 2014/08/**
-script src='/scripts/googleanalytics.js'
+script src='/scripts/vender/jquery-2.1.1.min.js'
+script src='/scripts/lib/googleanalytics.js'
+javascript:
+    $(function() {
+        $('.change-log a').on('click', function() {
+            if($(this).text() === 'とじる') {
+                $(this).text('更新履歴をもっとみる');
+            } else {
+                $(this).text('とじる');
+            }
+            $('.change-log :nth-child(n+4)').toggle();
+        });
+        $('.change-log a').click();
+    });

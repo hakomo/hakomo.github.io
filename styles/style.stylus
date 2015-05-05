@@ -1,7 +1,9 @@
 
 body
     background-color hsl(0, 0%, 95%)
-    font 16px / 1.5 Meiryo
+    font-family '游ゴシック', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif
+    font-size 16px
+    line-height 1.5
     margin 10px
 
 div
@@ -9,17 +11,12 @@ div
     max-width 700px
 
 h1
-    font normal 32px / 1 Meiryo
-    margin 0
+    margin 24px 0 0 0
 
 p
-    margin 64px 0
-
-.external-links
-    margin-top 0
-
-    a
-        margin-right 16px
+    border-top dashed 2px hsl(0, 0%, 50%)
+    margin 0
+    padding 32px 0
 
 a
     color hsl(210, 99%, 40%)
@@ -30,3 +27,17 @@ a
 
         img
             opacity 0.7
+
+.external-links
+    border-top none
+    padding 0 0 8px 0
+
+    a
+        margin-right 16px
+
+.change-log
+    padding 8px 0
+
+    span
+        font-size 14px
+        line-height 1.2
