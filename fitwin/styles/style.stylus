@@ -1,7 +1,7 @@
 
 body
     background-color hsl(0, 0%, 95%)
-    font-family '游ゴシック', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif
+    font-family 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif
     font-size 16px
     line-height 1.5
     margin 0
@@ -100,7 +100,7 @@ h4
 code
     background-color white
     border solid 1px hsl(0, 0%, 75%)
-    font-family '游ゴシック', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif
+    font-family 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif
     line-height 2
     margin 0 8px
     padding 0 8px

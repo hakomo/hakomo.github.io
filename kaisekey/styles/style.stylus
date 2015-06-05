@@ -1,7 +1,6 @@
 
 body
-    // font-family 'ＭＳ 明朝'
-    font-family '游ゴシック', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif
+    font-family 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif
     font-size 16px
     line-height 1.5
     margin 0
@@ -72,7 +71,7 @@ caption
     text-align left
 
 .table > tbody > tr > th, .table > tbody > tr > td
-    font-family '游ゴシック', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif
+    font-family 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif
     font-size 14px
     font-weight normal
     line-height 1.25

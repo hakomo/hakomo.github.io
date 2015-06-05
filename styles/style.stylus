@@ -1,7 +1,7 @@
 
 body
     background-color hsl(0, 0%, 95%)
-    font-family '游ゴシック', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif
+    font-family 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif
     font-size 16px
     line-height 1.5
     margin 10px
@@ -16,7 +16,7 @@ h1
 p
     border-top dashed 2px hsl(0, 0%, 50%)
     margin 0
-    padding 32px 0
+    padding 16px 0
 
 a
     color hsl(210, 99%, 40%)
@@ -39,5 +39,5 @@ a
     padding 8px 0
 
     span
+        display block
         font-size 14px
-        line-height 1.2
