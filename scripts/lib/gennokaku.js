@@ -1,7 +1,11 @@
 
-WebFontConfig = { custom: {
-    families: ['Gennokaku'],
-    urls: ['/styles/gennokaku.css'] } };
+WebFontConfig = {
+    timeout: 9000,
+    custom: {
+        families: ['Gennokaku'],
+        urls: ['/styles/gennokaku.css']
+    }
+};
 
 (function(d) {
     var e = d.createElement('script'), s = d.scripts[0];
