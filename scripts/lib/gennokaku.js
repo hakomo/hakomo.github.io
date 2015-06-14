@@ -1,6 +1,6 @@
 
 WebFontConfig = {
-    timeout: 9000,
+    timeout: 30000,
     custom: {
         families: ['Gennokaku'],
         urls: ['/styles/gennokaku.css']
