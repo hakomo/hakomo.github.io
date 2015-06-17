@@ -1,0 +1,18 @@
+<!DOCTYPE html><meta charset="utf-8" /><title>インビジゴースト - 見えざる敵の居所を探り、迎え撃て！</title><meta content="ie=edge" http-equiv="x-ua-compatible" /><meta content="hakomo" name="author" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="photo" name="twitter:card" /><meta content="@hakomof" name="twitter:site" /><meta content="http://hakomo.github.io/images/invisible.png" name="twitter:image" /><link href="styles/style.css" rel="stylesheet" /><div style="font-family: Gennokaku"></div><article><header><a href="../">てくてくぺたぺた - つくったアプリを公開しています</a></header><h1>インビジゴースト</h1><p>見えざる敵の居所を探り、迎え撃て！ PC ブラウザゲームです。</p><p>Firefox と Google Chrome で動作確認をしています。 Internet Explorer では効果音がうまく再生されません。<br /><a href="https://docs.google.com/forms/d/1y261eyYnYuB5LwlV9NHfPYD_DaU48GlPGwQdp_iWnWQ/viewform?entry.1558357097=%E3%82%A4%E3%83%B3%E3%83%93%E3%82%B8%E3%82%B4%E3%83%BC%E3%82%B9%E3%83%88&amp;entry.187745740&amp;entry.1950332360" target="_blank">バグの報告・要望</a></p><p>ゴーストは姿が見えない。しかし、ゴーストゴーグルをかければ範囲に潜むゴーストの <span class="bold">霊力の和と霊力の重心</span> がわかる。ゴーグルと霊撃を駆使し、居所を推測・絞りこみながら撃退せよ！</p><p><img alt="a" src="images/a.png" /></p><h2>説明</h2><table><caption>操作</caption><tr><td>↑ ↓ ← → キー</td><td>移動</td></tr><tr><td>Z キー</td><td>決定 / 攻撃</td></tr><tr><td>X キー</td><td>キャンセル / ターンを進める</td></tr></table><h4>霊力の和と霊力の重心</h4><p>左画像のように見えるとき、白線で囲まれた横 4 マスに潜むゴーストの居所はわからないが、霊力の和は 90 で、霊力の重心は 90 と表示されている位置にあるということです。</p><p>では、実際にゴーストがどこに潜んでいるのかというと、右画像のような 3 通りが考えられます（それら以外の可能性もあります）。</p><p><img alt="b" src="images/b.png" /></p><h4>目的</h4><p>ターンを進めるごとに前進してくるゴーストを倒しながら夜明けを迎えてください。どのゴーストも HP は 2 で、倒せなかったゴーストからは霊力分のダメージをくらいます。あとは色々試してみてください。</p><h2>ゲーム</h2><p>下にスクロールするとあります。それではお楽しみください。</p><div id="game"><a id="tweet" style="display: none" target="_blank">ツイートする（マウスクリック）</a></div><h2>更新履歴</h2><ul class="change-log"><li>v1.0 2015/06/18<ul class="small"><li>公開</li></ul></li></ul><h2>謝辞</h2><p>使わせていただいた素材などです、ありがとうございます。</p><p>言語 <a href="http://coffeescript.org/" target="_blank">CoffeeScript</a><br>ゲームフレームワーク <a href="http://phaser.io/" target="_blank">Phaser</a><br>フォント <a href="https://github.com/adobe-fonts/source-han-sans/" target="_blank">源の角</a><br>効果音 <a href="http://osabisi.sakura.ne.jp/m2/" target="_blank">ザ・マッチメイカァズ</a> さま<br>効果音 <a href="http://www.tam-music.com/" target="_blank">TAM Music Factory</a> さま<br>キャラチップ画像 <a href="http://usui.moo.jp/frame2.html" target="_blank">臼井の会</a> さま<br>背景画像 <a href="http://www.photo-ac.com/" target="_blank">写真AC</a> さま</p><footer><div class="social"><div class="twitter"></div><div class="facebook"></div>気に入りましたら励みになるので応援してください！</div>(C) 2015<a href="https://twitter.com/hakomof/" target="_blank">@hakomof</a><a href="../">てくてくぺたぺた - つくったアプリを公開しています</a></footer></article><script src="/scripts/vender/jquery-2.1.1.min.js"></script><script src="/scripts/vender/jquery.socialbutton-1.9.1.min.js"></script><script src="/scripts/vender/phaser.2.2.2.min.js"></script><script src="/scripts/lib/gennokaku.js"></script><script src="scripts/script.js"></script><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-51595485-1', 'hakomo.github.io');
+ga('send', 'pageview');
+
+$(function() {
+    $('.twitter').socialbutton('twitter', {
+        button: 'horizontal',
+        text: document.title,
+        url: 'http://hakomo.github.io/invisible/'
+    });
+    $('.facebook').socialbutton('facebook_like', {
+        button: 'button_count',
+        url: 'http://hakomo.github.io/invisible/'
+    });
+});</script>
