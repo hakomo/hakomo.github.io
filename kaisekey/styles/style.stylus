@@ -21,6 +21,8 @@ h2, h3
     border-bottom solid 1px hsl(170, 50%, 60%)
     border-left solid 16px hsl(170, 50%, 60%)
     font-size 20px
+    font-weight bold
+    line-height 1.5
     margin 64px 0 24px 0
     padding-left 8px
 
@@ -28,6 +30,7 @@ h2 + h3
     margin-top 0
 
 h4
+    font-weight bold
     margin 24px 0 -24px 0
 
 footer
