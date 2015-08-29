@@ -1,8 +1,11 @@
 
+img
+    vertical-align middle
+
 body
     background-color hsl(0, 0%, 95%)
     font-family 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif
-    margin 0
+    line-height 1.5
 
 .container
     margin auto
@@ -32,7 +35,7 @@ nav
         padding-left 16px
         text-decoration none
 
-        &:hover
+        &:focus, &:hover
             background-color hsl(170, 50%, 80%)
 
         &.child
@@ -67,11 +70,11 @@ article
         list-style-type none
 
     a
-        color hsl(210, 99%, 40%)
+        color hsl(210, 100%, 40%)
         text-decoration none
 
-        &:hover
-            text-decoration underline
+    a:focus, a:hover
+        text-decoration underline
 
 header, p, .margin
     margin 24px 0

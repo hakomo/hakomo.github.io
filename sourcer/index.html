@@ -1,0 +1,23 @@
+<!DOCTYPE html><meta charset="utf-8" /><title>SourceR - ソースリーディングを助けるソフトウェア</title><meta content="ie=edge" http-equiv="x-ua-compatible" /><meta content="hakomo" name="author" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="photo" name="twitter:card" /><meta content="@hakomof" name="twitter:site" /><meta content="http://hakomo.github.io/images/sourcer.png" name="twitter:image" /><link href="/styles/honoka.3.3.5b.min.css" rel="stylesheet" /><link href="styles/style.css" rel="stylesheet" /><div class="container"><div class="row"><div class="social hidden-xs"><div class="twitter"></div><div class="facebook"></div><div class="hatena"></div></div><header><a href="../">てくてくぺたぺた - つくったアプリを公開しています</a></header><h1>SourceR</h1><p>SourceR（ソーサー）は巨大なフレームワーク・ライブラリ・オープンソースなどのソースリーディングを助けるソフトウェアです。</p><p>読み終わったファイル・メソッドにタグをつけたり、メモを書くことで膨大なファイル・巨大なクラスのリーディングを管理します。</p><p><img alt="SourceR" class="img-responsive" src="images/a.png" /></p><p style="margin-top: 64px"><a class="btn btn-primary" href="https://github.com/hakomo/SourceR/releases" target="_blank"><span class="glyphicon glyphicon-download-alt"></span> ダウンロード</a> v1.0 2015/08/29</p><p>動作環境は Windows/Linux/Mac です。</p><p><a href="https://github.com/hakomo/SourceR/issues" target="_blank">バグの報告・要望</a></p><h2>概要</h2><p>ソースのルートフォルダーをドラッグ＆ドロップするとメソッド単位のツリーが表示されます。</p><p>対応言語は <a href="http://ctags.sourceforge.net/languages.html" target="_blank">Exuberant Ctags</a> に準じます。また、言語に対応していなくてもファイル単位のツリーを表示したり、タグをつけることは可能です。</p><h3>タグ</h3><p>読み終わったメソッド・ファイル・フォルダーにタグをつけることができます。</p><p><img alt="Tag" class="img-responsive" src="images/b.png" /></p><p>それぞれのタグの意味は以下のようなものを想定しています。</p><ul><li>OK - 読んで理解した</li><li>NG - 読んだが理解できなかった</li><li>Skip - 今はまだ読まなくていい</li></ul><h3>進捗</h3><p>つけたタグに応じて進捗をグラフィカルに確認できます。</p><p><img alt="Progress" class="img-responsive" src="images/c.png" /></p><h3>メモ</h3><p>メソッド・ファイル・フォルダー単位でメモを書くことができます。</p><p><img alt="Memo" class="img-responsive" src="images/d.png" /></p><h3>フィルター</h3><p>タグやメモの有無でフィルターをかけることができます。</p><p><img alt="Filter" class="img-responsive" src="images/e.png" /></p><h3>キーボード</h3><p>メニューに記載のないキーボード操作の一覧です。</p><table class="table table-bordered"><tr><td>ツリーの移動・開閉</td><td>↑ ↓ ← →</td></tr><tr><td>OK, NG, Skip タグをトグル</td><td>O, N, S</td></tr><tr><td>フォーカスを外す</td><td>Esc</td></tr></table><h2>更新履歴</h2><ul class="change-log"><li>v1.0 2015/08/29<ul><li>公開</li></ul></li></ul><footer>(C) 2015<a href="https://twitter.com/hakomof/" target="_blank">@hakomof</a><a href="../">てくてくぺたぺた - つくったアプリを公開しています</a></footer></div></div><script src="/scripts/vender/jquery-2.1.1.min.js"></script><script src="/scripts/vender/jquery.socialbutton-1.9.1.min.js"></script><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-51595485-1', 'hakomo.github.io');
+ga('send', 'pageview');
+
+$(function() {
+    $('.twitter').socialbutton('twitter', {
+        button: 'horizontal',
+        text: document.title,
+        url: 'http://hakomo.github.io/sourcer/'
+    });
+    $('.facebook').socialbutton('facebook_like', {
+        button: 'button_count',
+        url: 'http://hakomo.github.io/sourcer/'
+    });
+    $('.hatena').socialbutton('hatena', {
+        button: 'standard',
+        title: document.title,
+        url: 'http://hakomo.github.io/sourcer/'
+    });
+});</script>

@@ -4,31 +4,44 @@ title てくてくぺたぺた
 meta http-equiv='x-ua-compatible' content='ie=edge'
 meta name='author' content='hakomo'
 meta name='viewport' content='width=device-width, initial-scale=1'
+link rel='stylesheet' href='/styles/normalize.css'
 link rel='stylesheet' href='styles/style.css'
-div
-    h1: img src='images/logo.png' alt='logo'
-    p.external-links
+article
+    h1: img src='images/logo.png' alt='Logo'
+    .external-links
         a target='_blank' href='https://github.com/hakomo/' Github
         a target='_blank' href='http://qiita.com/hakomo' Qiita
         a target='_blank' href='https://twitter.com/hakomof/' Twitter
         a target='_blank' href='http://hakomof.hatenablog.com/' Blog
         a target='_blank' href='mailto:hakomof@gmail.com' Email
         a target='_blank' href='https://docs.google.com/forms/d/1y261eyYnYuB5LwlV9NHfPYD_DaU48GlPGwQdp_iWnWQ/viewform' バグの報告・要望
-    p.change-log
+    .change-log
         a href='javascript:void(0)' とじる
-        span 2015/06/18 インビジゴーストのソースを公開
-        span 2015/06/18 インビジゴーストを公開
-        span 2015/06/05 Fit Win を更新
-        span 2015/03/14 Fit Win を更新
-        span 2014/10/19 Fit Win を更新
-        span 2014/08/31 kaisekey を公開
-        span 2014/08/** ToCon の公開を停止
-        span 2014/07/12 てくてくぺたぺたを公開
-        span 2014/07/12 Fit Win を更新
-        span 2014/07/02 Fit Win を更新
-        span 2014/06/02 Fit Win を公開
-        span 2013/08/18 ToCon を公開
-    p
+        div 2015/08/29 SourceR のソースを公開
+        div 2015/08/29 SourceR を公開
+        div 2015/06/18 インビジゴーストのソースを公開
+        div 2015/06/18 インビジゴーストを公開
+        div 2015/06/05 Fit Win を更新
+        div 2015/03/14 Fit Win を更新
+        div 2014/10/19 Fit Win を更新
+        div 2014/08/31 kaisekey を公開
+        div 2014/08/** ToCon の公開を停止
+        div 2014/07/12 てくてくぺたぺたを公開
+        div 2014/07/12 Fit Win を更新
+        div 2014/07/02 Fit Win を更新
+        div 2014/06/02 Fit Win を公開
+        div 2013/08/18 ToCon を公開
+    section
+        a href='sourcer/'
+            img src='images/sourcer.png' alt='SourceR'
+            | <br>SourceR v1.0
+        | <br>巨大なフレームワークなどのソースリーディングを助けるソフトウェアです。
+        br
+        | <br>CoffeeScript, Mithril, Electron で書いた
+        a<> target='_blank' href='https://github.com/hakomo/SourceR' ソース
+        | も公開しています。
+        | <br>2015/08/29
+    section
         a href='invisible/'
             img src='images/invisible.png' alt='invisible'
             | <br>インビジゴースト v1.0
@@ -38,7 +51,7 @@ div
         a<> target='_blank' href='https://github.com/hakomo/InvisibleGhost' ソース
         | も公開しています。
         | <br>2015/06/18
-    p
+    section
         a href='kaisekey/'
             img src='images/kaisekey.png' alt='kaisekey'
             | <br>kaisekey
@@ -46,13 +59,13 @@ div
         a<> target='_blank' href='http://qiita.com/hakomo/items/a19eb4b08bc2b3aa1533' カスタマイズの解説
         | です。
         | <br>2014/08/31
-    p
+    section
         a href='fitwin/'
             img src='images/fitwin.png' alt='Fit Win'
             | <br>Fit Win v1.3
         | <br>複数のウィンドウを並べたり、移動・サイズ変更できる Windows 用フリーソフトです。
         | <br>2014/06/02 - 2015/06/05
-    p
+    section
         img src='images/tocon.png' alt='ToCon'
         | <br>ToCon
         | <br>ToDo を管理する Web サービスです。公開を停止しました。
@@ -73,7 +86,7 @@ javascript:
             } else {
                 $(this).text('とじる');
             }
-            $('.change-log :nth-child(n+4)').toggle();
+            $('.change-log div:nth-child(n+4)').toggle();
         });
         $('.change-log a').click();
     });
