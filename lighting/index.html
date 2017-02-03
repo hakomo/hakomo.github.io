@@ -1,0 +1,197 @@
+﻿<!doctype html>
+<meta charset='utf-8'>
+<meta http-equiv='x-ua-compatible' content='ie=edge'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+<body style='margin: 8px 20px;'>
+<div style='margin: auto; max-width: 900px;'>
+    これは何？<br>
+    <a href='https://community.topcoder.com/longcontest/?module=ViewProblemStatement&rd=16857&pm=14485'>Topcoder Marathon Match 92 Lighting</a> の勝手な焼きなまし法まわりの統計です。<br>
+    Topcoderとは異なる環境で実行したり、ソースコードに手を入れています。ミスっていたらごめんなさい。<br>
+    <br>
+    備考<br>
+    ＊＊回数は焼きなまし法と山登り法の合算です。<br>
+    wleiteさんとyowaさんは少し時間をかけて良い初期解をつくっているようなのでベスト更新が少ないようです。
+    <div id='score_transition'></div>
+    <div id='total_iteration'></div>
+    <div id='total_transit'></div>
+    <div id='total_improve'></div>
+    <div id='transit_per_elapsed_time'></div>
+    <div id='improve_per_elapsed_time'></div>
+</div>
+
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<script src='scripts/simanman.js'></script>
+<script src='scripts/eitaho.js'></script>
+<script src='scripts/wleite.js'></script>
+<script src='scripts/yowa.js'></script>
+<script src='scripts/hakomo.js'></script>
+<script>
+
+var users = [simanman, eitaho, wleite, yowa, hakomo]
+
+// var graph = []
+// for (var i = 0; i < users.length; ++i) {
+//     var user = users[i]
+//     var data = user.score_transitions[0].data
+//     for (var j = 0; j < data.length; j += 2) {
+//         graph.push({
+//             x: data[j],
+//             y: data[j + 1],
+//             mode: 'lines',
+//             name: user.name,
+//             legendgroup: user.name,
+//             showlegend: !j,
+//             line: {
+//                 color: 'hsla(' + (i / users.length * 360 | 0) + ', 50%, 50%, 0.5)',
+//             },
+//         })
+//         if (j) {
+//             graph.push({
+//                 x: [data[j - 2][data[j - 2].length - 1], data[j][0]],
+//                 y: [data[j - 1][data[j - 1].length - 1], data[j + 1][0]],
+//                 name: user.name,
+//                 legendgroup: user.name,
+//                 showlegend: false,
+//                 marker: {
+//                     color: 'hsla(' + (i / users.length * 360 | 0) + ', 50%, 50%, 0.5)',
+//                 },
+//             })
+//         }
+//     }
+// }
+// Plotly.newPlot('score_transition', graph, {
+//     title: 'スコア遷移',
+//     yaxis: {
+//         title: 'スコア',
+//     },
+//     xaxis: {
+//         title: '経過時間 [ms]',
+//         zeroline: false,
+//         range: [-500, 20000],
+//     },
+// })
+
+var graph = []
+for (var i = 0; i < users.length; ++i) {
+    var user = users[i]
+    graph.push({
+        y: user.cases.map(function(c) { return c.total_iteration }),
+        type: 'box',
+        boxpoints: 'all',
+        name: user.name,
+        marker: {
+            color: 'hsl(' + (i / users.length * 360 | 0) + ', 50%, 50%)',
+        },
+    })
+}
+Plotly.newPlot('total_iteration', graph, {
+    title: '試行回数',
+    yaxis: {
+        title: '試行回数',
+        range: [0, 30000000],
+    },
+})
+
+graph = []
+for (var i = 0; i < users.length; ++i) {
+    var user = users[i]
+    graph.push({
+        y: user.cases.map(function(c) { return c.total_transit.reduce(function(x, y) { return x + y }) }),
+        type: 'box',
+        boxpoints: 'all',
+        name: user.name,
+        marker: {
+            color: 'hsl(' + (i / users.length * 360 | 0) + ', 50%, 50%)',
+        },
+    })
+}
+Plotly.newPlot('total_transit', graph, {
+    title: '遷移回数',
+    yaxis: {
+        title: '遷移回数',
+        range: [0, 1400000],
+    },
+})
+
+graph = []
+for (var i = 0; i < users.length; ++i) {
+    var user = users[i]
+    graph.push({
+        y: user.cases.map(function(c) { return c.total_improve.reduce(function(x, y) { return x + y }) }),
+        type: 'box',
+        boxpoints: 'all',
+        name: user.name,
+        marker: {
+            color: 'hsl(' + (i / users.length * 360 | 0) + ', 50%, 50%)',
+        },
+    })
+}
+Plotly.newPlot('total_improve', graph, {
+    title: 'ベストスコア更新回数',
+    yaxis: {
+        title: 'ベストスコア更新回数',
+    },
+})
+
+graph = []
+for (var i = 0; i < users.length; ++i) {
+    var user = users[i]
+    var x = []
+    var y = []
+    for (var j = 0; j < user.cases[0].total_transit.length; ++j) {
+        x.push(j)
+        y.push(user.cases.reduce(function(s, c) { return s + c.total_transit[j] }, 0) / user.cases.length)
+    }
+    graph.push({
+        x: x,
+        y: y,
+        name: user.name,
+        marker: {
+            color: 'hsl(' + (i / users.length * 360 | 0) + ', 50%, 50%)',
+        },
+    })
+}
+Plotly.newPlot('transit_per_elapsed_time', graph, {
+    title: '経過時間ごとの遷移回数',
+    xaxis: {
+        title: '経過時間',
+        showticklabels: false,
+    },
+    yaxis: {
+        title: '遷移回数',
+    },
+})
+
+graph = []
+for (var i = 0; i < users.length; ++i) {
+    var user = users[i]
+    var x = []
+    var y = []
+    for (var j = 0; j < user.cases[0].total_improve.length; ++j) {
+        x.push(j)
+        y.push(user.cases.reduce(function(s, c) { return s + c.total_improve[j] }, 0) / user.cases.length)
+    }
+    graph.push({
+        x: x,
+        y: y,
+        name: user.name,
+        marker: {
+            color: 'hsl(' + (i / users.length * 360 | 0) + ', 50%, 50%)',
+        },
+    })
+}
+Plotly.newPlot('improve_per_elapsed_time', graph, {
+    title: '経過時間ごとのベストスコア更新回数',
+    xaxis: {
+        title: '経過時間',
+        showticklabels: false,
+    },
+    yaxis: {
+        title: 'ベストスコア更新回数',
+    },
+})
+
+</script>
+</body>
+
