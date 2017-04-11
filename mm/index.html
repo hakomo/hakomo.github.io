@@ -1,18 +1,21 @@
 <!doctype html>
 <meta charset='utf-8'>
-<title>MM_STAT</title>
+<title>NOW LOADING...</title>
 <meta http-equiv='x-ua-compatible' content='ie=edge'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-<body style='margin: 8px 20px;'>
+<body style='margin: 8px 20px; background-color: hsl(0, 0%, 98%);'>
 <div id='container' style='margin: auto; max-width: 800px;'>
-    <h1>MM_STAT</h1>
+    <h1>NOW LOADING...</h1>
     This page is <a id='outer_url' target='_blank'></a> unofficial statistics.
     Web scraping the system test of topcoder and visualize charts.
-    You can compare scores per major parameter of test cases.<br>
-    <br>
-    Don't charts legends include you?
-    See this page URL. Please edit "users_filter" of GET parameter that hyphen separated standings place.<br>
+    You can compare scores per major parameter of test cases.
+    <form hidden onsubmit='return apply_users_filter()'>
+        <br>
+        Users filter, comma separated standings place:<br>
+        <button type='button' onclick='all_users_filter()'>All</button><input style='width: 45%;'></input><button>Apply</button><br>
+        <br>
+    </form>
     <div id='0'></div>
     <div id='1'></div>
     <div id='2'></div>
@@ -30,24 +33,10 @@
 <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 <script>
 var contests = [
-    // {   name: 'topcoder MM* ContestName',
-    //     outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&rd=16887&pm=14543',
-    //     data_url: 'data/topcoderMM*ContestName.json',
-    //     url_get_parameter: 'ContestName',
-    //     large_score_is_better: true,
-    //     users_filter: [1, 2, 3, 4, 5],
-    //     parameters: [
-    //         {   name: 'Parameter name',
-    //             get: function() {
-    //             },
-    //         },
-    //     ],
-    // },
-
     {   name: 'topcoder MM93 CrossStitch',
         outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&rd=16887&pm=14543',
         data_url: 'data/topcoderMM93CrossStitch.json',
-        url_get_parameter: 'CrossStitch',
+        url_get_parameter_and_title: 'CrossStitch',
         large_score_is_better: true,
         users_filter: [1, 2, 3, 4, 5, 6, 7],
         parameters: [
@@ -94,13 +83,58 @@ var contests = [
             },
         ],
     },
+
+    {   name: 'topcoder MM92 Lighting',
+        outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&rd=16857&pm=14485',
+        data_url: 'data/topcoderMM92Lighting.json',
+        url_get_parameter_and_title: 'Lighting',
+        large_score_is_better: true,
+        users_filter: [1, 2, 3, 4, 5],
+        parameters: [
+            {   name: 'Size of the room S',
+                get: function(map, D, L) {
+                    var S = map.length
+                    return S
+                },
+            },
+            {   name: 'Light distance D',
+                get: function(map, D, L) {
+                    return D
+                },
+            },
+            {   name: 'Max number of lights L',
+                get: function(map, D, L) {
+                    return L
+                },
+            },
+            {   name: 'Wall density',
+                get: function(map, D, L) {
+                    var S = map.length
+                    var n = 0
+                    for (var y = 0; y < S; ++y)
+                        for (var x = 0; x < S; ++x)
+                            n += map[y][x] === '#'
+                    return n / (S * S)
+                },
+            },
+            {   name: 'Best score',
+                get: function() {
+                    return arguments[arguments.length - 1]
+                },
+            },
+        ],
+    },
 ]
-function plot(contest, users_filter, test_cases, users) {
+var contest
+function init() {
+    var test_cases = contest.test_cases
+    var users = contest.users
     for (var i = 0; i < users.length; ++i) {
         var user = users[i]
         user.name = (i + 1) + '. ' + user.name
     }
     for (var i = 0; i < test_cases.length; ++i) {
+        var test_case = test_cases[i]
         var best = 0
         for (var j = 0; j < users.length; ++j) {
             var user = users[j]
@@ -114,21 +148,34 @@ function plot(contest, users_filter, test_cases, users) {
             if (score !== 0)
                 user.scores[i] = contest.large_score_is_better ? score / best : best / score
         }
+        test_case.push(best)
     }
-    var plot_n = 0
+}
+function plot(users_filter) {
+    var test_cases = contest.test_cases
+    var users = contest.users
     for (var pi = 0; pi < contest.parameters.length; ++pi) {
         var parameter = contest.parameters[pi]
         var parameter_get = []
+        var p_is_int = true
+        var p_min = 1e9
+        var p_max = -1e9
         var indicies = []
         for (var i = 0; i < test_cases.length; ++i) {
             var test_case = test_cases[i]
-            parameter_get.push(parameter.get.apply(null, test_case))
+            var p = parameter.get.apply(null, test_case)
+            if ((p | 0) !== p)
+                p_is_int = false
+            p_min = Math.min(p_min, p)
+            p_max = Math.max(p_max, p)
+            parameter_get.push(p)
             indicies.push(i)
         }
         indicies.sort(function(i, j) {
             return parameter_get[i] - parameter_get[j]
         })
-        var GRID_SIZE = 50
+        var GRID_SIZE = Math.ceil(Math.max(test_cases.length / 20,
+            p_is_int ? test_cases.length / (p_max - p_min + 1) : 0))
         var xs = []
         for (var i = 0; i < test_cases.length; i += GRID_SIZE) {
             var x = 0
@@ -163,11 +210,13 @@ function plot(contest, users_filter, test_cases, users) {
                 graph.push({
                     x: xs,
                     y: scoress[i],
+                    mode: 'lines',
                     name: user.name,
                 })
             }
         }
         Plotly.newPlot(pi + '', graph, {
+            showlegend: true,
             xaxis: {
                 title: parameter.name,
             },
@@ -177,42 +226,66 @@ function plot(contest, users_filter, test_cases, users) {
         })
     }
 }
-var params = new URLSearchParams(location.search)
-if (params.has('contest')) {
-    var contest_name = params.get('contest').toLowerCase()
-    var contest = contests.find(function(contest) {
-        return contest.url_get_parameter.toLowerCase() === contest_name
-    })
-    if (contest) {
-        outer_url.textContent = contest.name
-        outer_url.setAttribute('href', contest.outer_url)
-        var users_filter = contest.users_filter
-        if (params.has('users_filter')) {
-            users_filter = params.get('users_filter').split('-').map(function(i) {
-                return i | 0
-            })
+function apply_users_filter() {
+    var users_filter = document.getElementsByTagName('input')[0].value
+    users_filter = users_filter.split(',').map(function(i) { return i | 0 })
+    plot(users_filter)
+    return false
+}
+function all_users_filter() {
+    var users = contest.users
+    var users_filter = []
+    for (var i = 1; i <= users.length; ++i)
+        users_filter.push(i)
+    var input = document.getElementsByTagName('input')[0]
+    input.value = users_filter.join(',')
+    input.select()
+}
+(function() {
+    var params = new URLSearchParams(location.search)
+    if (params.has('contest')) {
+        var contest_name = params.get('contest').toLowerCase()
+        contest = contests.find(function(contest) {
+            return contest.url_get_parameter_and_title.toLowerCase() === contest_name
+        })
+        if (contest) {
+            outer_url.textContent = contest.name
+            outer_url.setAttribute('href', contest.outer_url)
+            var request = new XMLHttpRequest()
+            request.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    contest.test_cases = this.response.test_cases
+                    contest.users = this.response.users
+                    init()
+                    plot(contest.users_filter)
+                    document.title = contest.url_get_parameter_and_title + ' | MM_STAT'
+                    document.getElementsByTagName('h1')[0].textContent = document.title
+                    document.getElementsByTagName('input')[0].value = contest.users_filter.join(',')
+                    document.forms[0].hidden = false
+                }
+            }
+            request.responseType = 'json'
+            request.open('GET', contest.data_url)
+            request.send()
+        } else {
+            document.title = 'MM_STAT'
+            document.getElementsByTagName('h1')[0].textContent = document.title
         }
-        var request = new XMLHttpRequest()
-        request.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200)
-                plot(contest, users_filter, this.response.test_cases, this.response.users)
-        }
-        request.responseType = 'json'
-        request.open('GET', contest.data_url)
-        request.send()
+    } else {
+        document.title = 'MM_STAT'
+        document.getElementsByTagName('h1')[0].textContent = document.title
     }
-}
-for (var i = 0; i < contests.length; ++i) {
-    var contest = contests[i]
-    var a = document.createElement('a')
-    a.textContent = contest.name
-    var params = new URLSearchParams()
-    params.set('contest', contest.url_get_parameter.toLowerCase())
-    params.set('users_filter', contest.users_filter.join('-'))
-    a.setAttribute('href', '?' + params)
-    container.appendChild(a)
-    container.appendChild(document.createElement('br'))
-}
+    for (var i = 0; i < contests.length; ++i) {
+        var c = contests[i]
+        var a = document.createElement('a')
+        a.textContent = c.name
+        var params = new URLSearchParams()
+        params.set('contest', c.url_get_parameter_and_title.toLowerCase())
+        a.setAttribute('href', '?' + params)
+        container.appendChild(a)
+        container.appendChild(document.createElement('br'))
+    }
+})();
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
