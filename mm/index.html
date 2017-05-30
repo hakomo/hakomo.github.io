@@ -33,6 +33,36 @@
 <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 <script>
 var contests = [
+    {   name: 'topcoder TCO17MMR2 AbstractWars',
+        outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&rd=16928&compid=55902',
+        data_url: 'data/topcoderTCO17MMR2AbstractWars.json',
+        url_get_parameter_and_title: 'AbstractWars',
+        large_score_is_better: true,
+        users_filter: [1, 2, 3, 4, 5],
+        parameters: [
+            {   name: 'Best score',
+                get: function() {
+                    return arguments[arguments.length - 1]
+                },
+            },
+            {   name: 'Number of bases B',
+                get: function(p) {
+                    return p.B
+                },
+            },
+            {   name: 'Number of opponents NOpp',
+                get: function(p) {
+                    return p.NO
+                },
+            },
+            {   name: 'Movement speed',
+                get: function(p) {
+                    return p.speed
+                },
+            },
+        ],
+    },
+
     {   name: 'topcoder TCO17MMR1 GraphDrawing',
         outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&rd=16903&pm=14565',
         data_url: 'data/topcoderTCO17MMR1GraphDrawing.json',
@@ -169,16 +199,35 @@ function init() {
         for (var j = 0; j < users.length; ++j) {
             var user = users[j]
             var score = user.scores[i]
-            if (score !== 0 && (best === 0 || (contest.large_score_is_better ? best < score : best > score)))
+            if (score > 0 && (best === 0 || (contest.large_score_is_better ? best < score : best > score)))
                 best = score
         }
-        for (var j = 0; j < users.length; ++j) {
-            var user = users[j]
-            var score = user.scores[i]
-            if (score !== 0)
-                user.scores[i] = contest.large_score_is_better ? score / best : best / score
-        }
         test_case.push(best)
+        if (contest.url_get_parameter_and_title === 'AbstractWars') {
+            var scores = []
+            for (var j = 0; j < users.length; ++j) {
+                var score = 0
+                for (var k = 0; k < users.length; ++k) {
+                    if (j !== k) {
+                        if (contest.large_score_is_better ? users[j].scores[i] > users[k].scores[i] : users[j].scores[i] < users[k].scores[i]) {
+                            score += 1
+                        } else if (users[j].scores[i] === users[k].scores[i]) {
+                            score += 0.5
+                        }
+                    }
+                }
+                scores.push(score)
+            }
+            for (var j = 0; j < users.length; ++j)
+                users[j].scores[i] = scores[j]
+        } else {
+            for (var j = 0; j < users.length; ++j) {
+                var user = users[j]
+                var score = user.scores[i]
+                if (score > 0)
+                    user.scores[i] = contest.large_score_is_better ? score / best : best / score
+            }
+        }
     }
 }
 function plot(users_filter) {
@@ -240,7 +289,7 @@ function plot(users_filter) {
                 graph.push({
                     x: xs,
                     y: scoress[i],
-                    mode: 'lines',
+                    mode: 'lines+markers',
                     name: user.name,
                 })
             }
