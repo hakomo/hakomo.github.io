@@ -26,6 +26,16 @@
     <div id='7'></div>
     <div id='8'></div>
     <div id='9'></div>
+    <div id='10'></div>
+    <div id='11'></div>
+    <div id='12'></div>
+    <div id='13'></div>
+    <div id='14'></div>
+    <div id='15'></div>
+    <div id='16'></div>
+    <div id='17'></div>
+    <div id='18'></div>
+    <div id='19'></div>
     <br>
     Other contests statistics:<br>
 </div>
@@ -61,6 +71,36 @@ var contests = [
                 },
             },
             {   name: 'numPoison',
+                get: function(numBottles, testStrips, testRounds, numPoison) {
+                    return numPoison
+                },
+            },
+            {   name: 'Best score',
+                feature_scaled: false,
+                get: function() {
+                    return arguments[arguments.length - 1]
+                },
+            },
+            {   name: 'numBottles',
+                feature_scaled: false,
+                get: function(numBottles, testStrips, testRounds, numPoison) {
+                    return numBottles
+                },
+            },
+            {   name: 'testStrips',
+                feature_scaled: false,
+                get: function(numBottles, testStrips, testRounds, numPoison) {
+                    return testStrips
+                },
+            },
+            {   name: 'testRounds',
+                feature_scaled: false,
+                get: function(numBottles, testStrips, testRounds, numPoison) {
+                    return testRounds
+                },
+            },
+            {   name: 'numPoison',
+                feature_scaled: false,
                 get: function(numBottles, testStrips, testRounds, numPoison) {
                     return numPoison
                 },
@@ -318,16 +358,22 @@ function plot(users_filter) {
                 var score = 0
                 for (var k = grid[i - 1]; k < grid[i]; ++k)
                     score += scores[indicies[k]]
-                scoress[j].push(score / (grid[i] - grid[i - 1]))
+                scoress[j].push(score)
             }
         }
         //
-        for (var i = 0; i < scoress[0].length; ++i) {
-            var best = 0
-            for (var j = 0; j < users.length; ++j)
-                best = Math.max(best, scoress[j][i])
-            for (var j = 0; j < users.length; ++j)
-                scoress[j][i] /= best
+        if (parameter.feature_scaled !== false) {
+            for (var i = 0; i < scoress[0].length; ++i) {
+                var best = 0
+                for (var j = 0; j < users.length; ++j)
+                    best = Math.max(best, scoress[j][i])
+                for (var j = 0; j < users.length; ++j)
+                    scoress[j][i] /= best
+            }
+        } else {
+            for (var i = 0; i < scoress[0].length; ++i)
+                for (var j = 0; j < users.length; ++j)
+                    scoress[j][i] *= 1000000 / test_cases.length
         }
         var graph = []
         for (var i = 0; i < users.length; ++i) {
@@ -347,7 +393,7 @@ function plot(users_filter) {
                 title: parameter.name,
             },
             yaxis: {
-                title: 'Score (feature scaling)',
+                title: parameter.feature_scaled !== false ? 'Score (feature scaling)' : 'Sum of score',
             },
         })
     }
