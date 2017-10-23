@@ -43,6 +43,21 @@
 <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 <script>
 var contests = [
+    {   name: 'topcoder MM95 CirclesMix',
+        outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&rd=16959&pm=14722',
+        data_url: 'data/topcoderMM95CirclesMix.json',
+        url_get_parameter_and_title: 'CirclesMix',
+        large_score_is_better: false,
+        users_filter: [1, 2, 3, 4],
+        parameters: [
+            {   name: 'Best score',
+                get: function() {
+                    return arguments[arguments.length - 1]
+                },
+            },
+        ],
+    },
+
     {   name: 'topcoder TCO17MML KnightsAttacks',
         outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&rd=16981&pm=14679',
         data_url: 'data/topcoderTCO17MMLKnightsAttacks.json',
@@ -333,7 +348,7 @@ function init() {
                 best = score
         }
         test_case.push(best)
-        if (contest.url_get_parameter_and_title === 'AbstractWars' || contest.url_get_parameter_and_title === 'ConnectedComponent' || contest.url_get_parameter_and_title === 'KnightsAttacks') {
+        if (contest.url_get_parameter_and_title === 'AbstractWars' || contest.url_get_parameter_and_title === 'ConnectedComponent' || contest.url_get_parameter_and_title === 'KnightsAttacks' || contest.url_get_parameter_and_title === 'CirclesMix') {
             var scores = []
             for (var j = 0; j < users.length; ++j) {
                 var score = 0
