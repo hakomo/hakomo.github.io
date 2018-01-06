@@ -43,6 +43,32 @@
 <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 <script>
 var contests = [
+    {   name: 'topcoder MM96 GarlandOfLights',
+        data_url: 'data/topcoderMM96GarlandOfLights.json',
+        url_get_parameter_and_title: 'GarlandOfLights',
+        large_score_is_better: true,
+        users_filter: [1, 2, 3, 4],
+        parameters: [
+            {
+                name: 'H * W',
+                get: function(H, W, C) {
+                    return H * W
+                },
+            },
+            {
+                name: 'C',
+                get: function(H, W, C) {
+                    return C
+                },
+            },
+            {   name: 'Best score',
+                get: function() {
+                    return arguments[arguments.length - 1]
+                },
+            },
+        ],
+    },
+
     {   name: 'topcoder MM95 CirclesMix',
         outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&rd=16959&pm=14722',
         data_url: 'data/topcoderMM95CirclesMix.json',
@@ -348,7 +374,7 @@ function init() {
                 best = score
         }
         test_case.push(best)
-        if (contest.url_get_parameter_and_title === 'AbstractWars' || contest.url_get_parameter_and_title === 'ConnectedComponent' || contest.url_get_parameter_and_title === 'KnightsAttacks' || contest.url_get_parameter_and_title === 'CirclesMix') {
+        if (contest.url_get_parameter_and_title === 'AbstractWars' || contest.url_get_parameter_and_title === 'ConnectedComponent' || contest.url_get_parameter_and_title === 'KnightsAttacks') {
             var scores = []
             for (var j = 0; j < users.length; ++j) {
                 var score = 0
@@ -368,12 +394,12 @@ function init() {
             for (var j = 0; j < users.length; ++j)
                 users[j].scores[i] = scores[j]
         } else {
-            // for (var j = 0; j < users.length; ++j) {
-            //     var user = users[j]
-            //     var score = user.scores[i]
-            //     if (score > 0)
-            //         user.scores[i] = contest.large_score_is_better ? score / best : best / score
-            // }
+            for (var j = 0; j < users.length; ++j) {
+                var user = users[j]
+                var score = user.scores[i]
+                if (score > 0)
+                    user.scores[i] = contest.large_score_is_better ? score / best : best / score
+            }
         }
     }
 }
