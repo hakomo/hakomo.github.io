@@ -43,6 +43,39 @@
 <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 <script>
 var contests = [
+    {   name: 'topcoder MM97 PointsOnTheCircle',
+        outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&rd=17063&pm=14816',
+        data_url: 'data/topcoderMM97PointsOnTheCircle.json',
+        url_get_parameter_and_title: 'PointsOnTheCircle',
+        large_score_is_better: false,
+        users_filter: [1, 2, 3, 4],
+        parameters: [
+            {
+                name: 'Number of points',
+                get: function(N, E) {
+                    return N
+                },
+            },
+            {
+                name: 'Number of edges',
+                get: function(N, E) {
+                    return E
+                },
+            },
+            {
+                name: 'Proportion of edges',
+                get: function(N, E) {
+                    return E / (N * (N - 1) / 2)
+                },
+            },
+            {   name: 'Best score',
+                get: function() {
+                    return arguments[arguments.length - 1]
+                },
+            },
+        ],
+    },
+
     {   name: 'topcoder MM96 GarlandOfLights',
         outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&rd=17052&pm=14741',
         data_url: 'data/topcoderMM96GarlandOfLights.json',
@@ -367,22 +400,22 @@ function init() {
     }
     for (var i = 0; i < test_cases.length; ++i) {
         var test_case = test_cases[i]
-        var best = 0
+        var best = -1
         for (var j = 0; j < users.length; ++j) {
             var user = users[j]
             var score = user.scores[i]
-            if (score > 0 && (best === 0 || (contest.large_score_is_better ? best < score : best > score)))
+            if (score >= 0 && (best === -1 || (contest.large_score_is_better ? best < score : best > score)))
                 best = score
         }
         test_case.push(best)
-        if (contest.url_get_parameter_and_title === 'AbstractWars' || contest.url_get_parameter_and_title === 'ConnectedComponent' || contest.url_get_parameter_and_title === 'KnightsAttacks' || contest.url_get_parameter_and_title === 'CirclesMix') {
+        if (contest.url_get_parameter_and_title === 'AbstractWars' || contest.url_get_parameter_and_title === 'ConnectedComponent' || contest.url_get_parameter_and_title === 'KnightsAttacks' || contest.url_get_parameter_and_title === 'CirclesMix' || contest.url_get_parameter_and_title === 'PointsOnTheCircle') {
             var scores = []
             for (var j = 0; j < users.length; ++j) {
                 var score = 0
-                if (users[j].scores[i] > 0) {
+                if (users[j].scores[i] >= 0) {
                     for (var k = 0; k < users.length; ++k) {
                         if (j !== k) {
-                            if (users[k].scores[i] <= 0 || (contest.large_score_is_better ? users[j].scores[i] > users[k].scores[i] : users[j].scores[i] < users[k].scores[i])) {
+                            if (users[k].scores[i] < 0 || (contest.large_score_is_better ? users[j].scores[i] > users[k].scores[i] : users[j].scores[i] < users[k].scores[i])) {
                                 score += 1
                             } else if (users[j].scores[i] === users[k].scores[i]) {
                                 score += 0.5
