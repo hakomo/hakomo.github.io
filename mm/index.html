@@ -44,6 +44,42 @@
 <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 <script>
 var contests = [
+    {   name: 'topcoder MM99 BrokenSlotMachines',
+        outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&compid=61685&rd=17092',
+        data_url: 'data/topcoderMM99BrokenSlotMachines.json',
+        url_get_parameter_and_title: 'BrokenSlotMachines',
+        large_score_is_better: true,
+        users_filter: [1, 2, 3, 4],
+        invalid_score: -1,
+        parameters: [
+            {   name: 'Coins',
+                get: function(coins, maxTime, noteTime, numMachines, wheels) {
+                    return coins
+                },
+            },
+            {   name: 'Max Time',
+                get: function(coins, maxTime, noteTime, numMachines, wheels) {
+                    return maxTime
+                },
+            },
+            {   name: 'Note Time',
+                get: function(coins, maxTime, noteTime, numMachines, wheels) {
+                    return noteTime
+                },
+            },
+            {   name: 'Num Machines',
+                get: function(coins, maxTime, noteTime, numMachines, wheels) {
+                    return numMachines
+                },
+            },
+            {   name: 'Best score',
+                get: function() {
+                    return arguments[arguments.length - 1]
+                },
+            },
+        ],
+    },
+
     {   name: 'topcoder MM98 PrincessesAndMonsters',
         outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&compid=61377&rd=17086',
         data_url: 'data/topcoderMM98PrincessesAndMonsters.json',
@@ -496,13 +532,20 @@ function init() {
             }
             for (var j = 0; j < users.length; ++j)
                 users[j].scores[i] = scores[j]
-        } else {
-            // for (var j = 0; j < users.length; ++j) {
-            //     var user = users[j]
-            //     var score = user.scores[i]
-            //     if (score > 0)
-            //         user.scores[i] = contest.large_score_is_better ? score / best : best / score
-            // }
+        } else if (contest.url_get_parameter_and_title === 'BrokenSlotMachines') {
+            for (var j = 0; j < users.length; ++j) {
+                var user = users[j]
+                var score = user.scores[i]
+                if (score > contest.invalid_score + 1e-9) {
+                    if (contest.large_score_is_better) {
+                        user.scores[i] = best ? score / best : 1
+                    } else {
+                        user.scores[i] = score ? best / score : 1
+                    }
+                } else {
+                    user.scores[i] = 0
+                }
+            }
         }
     }
     var s = '<tr><th>Handle</th><th>Bests</th><th>Uniques</th><th>Zeros</th></tr>'
