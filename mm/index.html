@@ -44,6 +44,32 @@
 <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 <script>
 var contests = [
+    {   name: 'topcoder MM100 SameColorPairs',
+        outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&compid=62857&rd=17143',
+        data_url: 'data/topcoderMM100SameColorPairs.json',
+        url_get_parameter_and_title: 'SameColorPairs',
+        large_score_is_better: true,
+        users_filter: [1, 2, 3, 4],
+        invalid_score: -1,
+        parameters: [
+            {   name: 'H * W',
+                get: function(H, W, C) {
+                    return H * W
+                },
+            },
+            {   name: 'min(H / W, W / H)',
+                get: function(H, W, C) {
+                    return Math.min(H / W, W / H)
+                },
+            },
+            {   name: 'C',
+                get: function(H, W, C) {
+                    return C
+                },
+            },
+        ],
+    },
+
     {   name: 'topcoder MM99 BrokenSlotMachines',
         outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&compid=61685&rd=17092',
         data_url: 'data/topcoderMM99BrokenSlotMachines.json',
@@ -513,7 +539,7 @@ function init() {
             }
         }
         test_case.push(best)
-        if (contest.url_get_parameter_and_title === 'AbstractWars' || contest.url_get_parameter_and_title === 'ConnectedComponent' || contest.url_get_parameter_and_title === 'KnightsAttacks' || contest.url_get_parameter_and_title === 'CirclesMix' || contest.url_get_parameter_and_title === 'PointsOnTheCircle' || contest.url_get_parameter_and_title === 'PrincessesAndMonsters') {
+        if (contest.url_get_parameter_and_title === 'AbstractWars' || contest.url_get_parameter_and_title === 'ConnectedComponent' || contest.url_get_parameter_and_title === 'KnightsAttacks' || contest.url_get_parameter_and_title === 'CirclesMix' || contest.url_get_parameter_and_title === 'PointsOnTheCircle' || contest.url_get_parameter_and_title === 'PrincessesAndMonsters' || contest.url_get_parameter_and_title === 'SameColorPairs') {
             var scores = []
             for (var j = 0; j < users.length; ++j) {
                 var score = 0
