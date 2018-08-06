@@ -44,6 +44,32 @@
 <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 <script>
 var contests = [
+{   name: 'topcoder TCO18MML KnightsAndPawns',
+        outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&rd=17225&pm=14994',
+        data_url: 'data/topcoderTCO18MMLKnightsAndPawns.json',
+        url_get_parameter_and_title: 'KnightsAndPawns',
+        large_score_is_better: true,
+        users_filter: [1, 2, 3, 4],
+        invalid_score: -1,
+        parameters: [
+            {   name: 'H * W',
+                get: function(h, w, p) {
+                    return h * w
+                },
+            },
+            {   name: 'Probability of a pawn',
+                get: function(h, w, p) {
+                    return p
+                },
+            },
+            {   name: 'Best score',
+                get: function() {
+                    return arguments[arguments.length - 1]
+                },
+            },
+        ],
+    },
+
     {   name: 'topcoder TCO18MMR2 CrystalLighting',
         outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&compid=64279&rd=17179',
         data_url: 'data/topcoderTCO18MMR2CrystalLighting.json',
@@ -609,7 +635,7 @@ function init() {
             }
             for (var j = 0; j < users.length; ++j)
                 users[j].scores[i] = scores[j]
-        } else if (contest.url_get_parameter_and_title === 'BrokenSlotMachines') {
+        } else if (contest.url_get_parameter_and_title === 'BrokenSlotMachines' || contest.url_get_parameter_and_title === 'KnightsAndPawns') {
             for (var j = 0; j < users.length; ++j) {
                 var user = users[j]
                 var score = user.scores[i]
