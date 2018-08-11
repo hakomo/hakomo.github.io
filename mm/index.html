@@ -44,7 +44,38 @@
 <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 <script>
 var contests = [
-{   name: 'topcoder TCO18MML KnightsAndPawns',
+    {   name: 'topcoder TCO18MMR4 CakeSharing',
+        outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&rd=17230&pm=14971',
+        data_url: 'data/topcoderTCO18MMR4CakeSharing.json',
+        url_get_parameter_and_title: 'CakeSharing',
+        large_score_is_better: false,
+        users_filter: [1, 2, 3, 7],
+        invalid_score: -1,
+        parameters: [
+            {   name: 'H * W',
+                get: function(h, w, n, r) {
+                    return h * w
+                },
+            },
+            {   name: 'N / (H + W)',
+                get: function(h, w, n, r) {
+                    return n / (h + w)
+                },
+            },
+            {   name: 'Probability of a rose',
+                get: function(h, w, n, r) {
+                    return r / (h * w)
+                },
+            },
+            {   name: 'Best score',
+                get: function() {
+                    return arguments[arguments.length - 1]
+                },
+            },
+        ],
+    },
+
+    {   name: 'topcoder TCO18MML KnightsAndPawns',
         outer_url: 'https://community.topcoder.com/longcontest/?module=ViewProblemStatement&rd=17225&pm=14994',
         data_url: 'data/topcoderTCO18MMLKnightsAndPawns.json',
         url_get_parameter_and_title: 'KnightsAndPawns',
@@ -635,7 +666,7 @@ function init() {
             }
             for (var j = 0; j < users.length; ++j)
                 users[j].scores[i] = scores[j]
-        } else if (contest.url_get_parameter_and_title === 'BrokenSlotMachines' || contest.url_get_parameter_and_title === 'KnightsAndPawns') {
+        } else if (contest.url_get_parameter_and_title === 'BrokenSlotMachines' || contest.url_get_parameter_and_title === 'KnightsAndPawns' || contest.url_get_parameter_and_title === 'CakeSharing') {
             for (var j = 0; j < users.length; ++j) {
                 var user = users[j]
                 var score = user.scores[i]
@@ -651,17 +682,6 @@ function init() {
             }
         }
     }
-    var s = '<tr><th>Handle</th><th>Bests</th><th>Uniques</th><th>Zeros</th></tr>'
-    for (var j = 0; j < users.length; ++j) {
-        var user = users[j]
-        s += '<tr>'
-        s += '<td>' + user.name + '</td>'
-        s += '<td>' + user.bests + '</td>'
-        s += '<td>' + user.uniques + '</td>'
-        s += '<td>' + user.zeros + '</td>'
-        s += '</tr>'
-    }
-    document.getElementsByTagName('table')[0].innerHTML = s
 }
 function plot(users_filter) {
     var test_cases = contest.test_cases
